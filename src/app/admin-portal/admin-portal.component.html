@@ -1,0 +1,242 @@
+<div class="container-fluid" *ngIf="show.page">
+    <br>
+    <mat-tab-group [disableRipple]=true>
+        <mat-tab label="All Stories">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="d-flex">
+                            <th class="col-1" scope="col">Story Id</th>
+                            <th class="col-5" scope="col">Story name</th>
+                            <th class="col-3" scope="col">Author name</th>
+                            <th class="col-3" scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex" *ngFor="let all_story of allStories">
+                            <td class="col-1" scope="row"><a routerLink="/story/{{ all_story.story.id }}">{{
+                                    all_story.story.id }}</a>
+                            </td>
+                            <td class="col-5"><a routerLink="/story/{{ all_story.story.id }}">{{ all_story.story.name
+                                    }}</a></td>
+                            <td class="col-3"> {{all_story.author.name}}</td>
+                            <td class="col-3" *ngIf="all_story.story.status == 0"> <button mat-raised-button
+                                    color="accent" type="submit" class="btn btn-sm">Pending Review</button> </td>
+                            <td class="col-3" *ngIf="all_story.story.status == 1"> <button mat-raised-button
+                                    color="primary" type="submit"
+                                    class="btn btn-sm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Published&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </td>
+                            <td class="col-3" *ngIf="all_story.story.status == 2"> <button mat-raised-button
+                                    color="warn" type="submit"
+                                    class="btn btn-sm">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rejected&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Published Stories" *ngIf="show.publish_flag">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="d-flex">
+                            <th scope="col" class="col-1">Story Id</th>
+                            <th scope="col" class="col-4">Story name</th>
+                            <th scope="col" class="col-2">Author name</th>
+                            <th scope="col" class="col-3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex" *ngFor="let publishedstory of publishedStories">
+                            <th scope="row" class="col-1"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a></th>
+                            <td class="col-4"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a></td>
+                            <td class="col-2">{{publishedstory.author.name}}</td>
+                            <td class="col-3">
+                                <mat-select [(value)]="publishedstory.story.selected">
+                                    <mat-option value="0">Pending Review</mat-option>
+                                    <mat-option value="1">Published</mat-option>
+                                    <mat-option value="2">Reject</mat-option>
+                                </mat-select>
+                            </td>
+                            <td class="col-2">
+                                <button mat-raised-button color="accent" class="btn btn-sm"
+                                    (click)="updatestatus(publishedstory.story.id,publishedstory.story.selected)">Update
+                                    Story</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Approval Pending Stories" *ngIf="show.review_flag">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="d-flex">
+                            <th scope="col" class="col-1">Story Id</th>
+                            <th scope="col" class="col-4">Story name</th>
+                            <th scope="col" class="col-2">Author name</th>
+                            <th scope="col" class="col-3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex" *ngFor="let pendingreview of pendingReviewStories">
+                            <th scope="row" class="col-1" ><a routerLink="/story/{{ pendingreview.story.id }}">{{pendingreview.story.id}}</a></th>
+                            <td class="col-4"><a routerLink="/story/{{ pendingreview.story.id }}">{{pendingreview.story.name}}</a></td>
+                            <td class="col-2">{{pendingreview.author.name}}</td>
+                            <td class="col-3">
+                                <mat-select [(value)]="pendingreview.story.selected">
+                                    <mat-option value="0">Pending Review</mat-option>
+                                    <mat-option value="1">Published</mat-option>
+                                    <mat-option value="2">Reject</mat-option>
+                                </mat-select>
+                            </td>
+                            <td class="col-2">
+                                <button mat-raised-button color="accent" class="btn btn-sm"
+                                    (click)="updatestatus(pendingreview.story.id,pendingreview.story.selected)">Update
+                                    Story</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Approval Rejected stories" *ngIf="show.reject_flag">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="d-flex">
+                            <th class="col-1" scope="col">Story Id</th>
+                            <th class="col-4" scope="col">Story name</th>
+                            <th class="col-2" scope="col">Author name</th>
+                            <th class="col-3" scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex" *ngFor="let rejectedstory of rejectedApprovalStories">
+                            <th class="col-1" scope="row" ><a routerLink="/story/{{ rejectedstory.story.id }}">{{rejectedstory.story.id}}</a></th>
+                            <td class="col-4"><a routerLink="/story/{{ rejectedstory.story.id }}">{{rejectedstory.story.name}}</a></td>
+                            <td class="col-2">{{rejectedstory.author.name}}</td>
+                            <td class="col-3">
+                                <mat-select [(value)]="rejectedstory.story.selected">
+                                    <mat-option value="0">Pending Review</mat-option>
+                                    <mat-option value="1">Published</mat-option>
+                                    <mat-option value="2">Reject</mat-option>
+                                </mat-select>
+                            </td>
+                            <td class="col-2">
+                                <button mat-raised-button color="accent" class="btn btn-sm"
+                                    (click)="updatestatus(rejectedstory.story.id,rejectedstory.story.selected)">Update
+                                    Story</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Select Related Stories" *ngIf="show.publish_flag">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="d-flex">
+                            <th class="col-1" scope="col">Story Id</th>
+                            <th class="col-4" scope="col">Story name</th>
+                            <th class="col-2" scope="col">Author name</th>
+                            <th class="col-3" scope="col">Related stories</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex" *ngFor="let publishedstory of publishedStories">
+                            <th class="col-1" scope="row"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a></th>
+                            <td class="col-4"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a></td>
+                            <td class="col-2">{{publishedstory.author.name}}</td>
+                            <td class="col-3">
+                                <mat-label>Story id's</mat-label>
+                                <mat-select [(ngModel)]="publishedstory.story.related" multiple>
+                                    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}
+                                    </mat-option>
+                                </mat-select>
+                            </td>
+                            <td class="col-2">
+                                <button mat-raised-button color="accent" class="btn btn-sm"
+                                    (click)="updateRelatedStories(publishedstory.story.id,publishedstory.story.related)">Update
+                                    Story</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Select Feature Stories" *ngIf="show.publish_flag">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="d-flex">
+                            <th scope="col" class="col-1">Story Id</th>
+                            <th scope="col" class="col-4">Story name</th>
+                            <th scope="col" class="col-2">Author name</th>
+                            <th scope="col" class="col-3">Featured</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex" *ngFor="let publishedstory of publishedStories">
+                            <th class="col-1" scope="row"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a></th>
+                            <td class="col-4"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a></td>
+                            <td class="col-2">{{publishedstory.author.name}}</td>
+                            <td class="col-3">
+                                <mat-select [(value)]="publishedstory.story.featuredSelect">
+                                    <mat-option value="1">Show</mat-option>
+                                    <mat-option value="0">Hide</mat-option>
+                                </mat-select>
+                            </td>
+                            <td class="col-2">
+                                <button mat-raised-button color="accent" class="btn btn-sm"
+                                    (click)="updateFeatureStories(publishedstory.story.id,publishedstory.story.featuredSelect)">Update
+                                    Story</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Select Carousel Stories" *ngIf="show.carousel_flag">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="d-flex">
+                            <th scope="col" class="col-1">Story Id</th>
+                            <th scope="col" class="col-4">Story name</th>
+                            <th scope="col" class="col-2">Author name</th>
+                            <th scope="col" class="col-3">Featured</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex" *ngFor="let carouselStory of carouselStories">
+                            <th class="col-1" scope="row"><a routerLink="/story/{{ carouselStory.story.id }}">{{carouselStory.story.id}}</a></th>
+                            <td class="col-4"><a routerLink="/story/{{ carouselStory.story.id }}">{{carouselStory.story.name}}</a></td>
+                            <td class="col-2">{{carouselStory.author.name}}</td>
+                            <td class="col-3">
+                                <mat-select [(value)]="carouselStory.story.carouselSelect">
+                                    <mat-option value="1">Show</mat-option>
+                                    <mat-option value="0">Hide</mat-option>
+                                </mat-select>
+                            </td>
+                            <td class="col-2">
+                                <button mat-raised-button color="accent" class="btn btn-sm"
+                                    (click)="updateCarouselStories(carouselStory.story.id,carouselStory.story.carouselSelect)">Update
+                                    Story</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+
+<div class="container-dileepan" *ngIf="!show.page">
+    <div class="vertical-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

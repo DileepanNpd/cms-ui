@@ -1,0 +1,169 @@
+<div class="container" *ngIf="show">
+    <div class="row">
+        <div class="col-12 pb-5 pt-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-text">
+                        <p class="heading">{{ratingList.story.name}}</p>
+                        <br>
+                        <span class="heading">User Rating</span>
+                        <br>
+                        <span>
+                            <ng-template #t let-fill="fill">
+                                <span class="star" [class.full]="fill === 100">
+                                    <span class="half" [style.width.%]="fill"><i class="fa fa-heart"
+                                            aria-hidden="true"></i></span><i class="fa fa-heart" aria-hidden="true"></i>
+                                </span>
+                            </ng-template>
+                            <ngb-rating [(rate)]="ratingList.story.rating" [starTemplate]="t" [readonly]="true"
+                                [max]="5">
+                            </ngb-rating>
+                        </span>
+                        <br>
+                        <p>{{ratingList.story.rating}} average based on {{ratingList.ratingCount.total_reviews}}
+                            reviews.</p>
+                        <span class="example-spacer"></span>
+                        <button mat-raised-button color="accent" class="btn btn-sm" type="button"
+                            (click)="open(mymodal)">Add your review</button>
+                        <hr style="border:3px solid #f1f1f1">
+
+                        <div class="row pt-2">
+                            <div class="col-3">
+                                <div class="pl-2">5 star</div>
+                            </div>
+                            <div class="col-7">
+                                <div class="bar-container">
+                                    <div class="bar-5" [ngStyle]="setMyStyles(5)"></div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="pr-2">{{ratingList.ratingCount.star_5}}</div>
+                            </div>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-3">
+                                <div class="pl-2">4 star</div>
+                            </div>
+                            <div class="col-7">
+                                <div class="bar-container">
+                                    <div class="bar-4" [ngStyle]="setMyStyles(4)"></div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="pr-2">{{ratingList.ratingCount.star_4}}</div>
+                            </div>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-3">
+                                <div class="pl-2">3 star</div>
+                            </div>
+                            <div class="col-7">
+                                <div class="bar-container">
+                                    <div class="bar-3" [ngStyle]="setMyStyles(3)"></div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="pr-2">{{ratingList.ratingCount.star_3}}</div>
+                            </div>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-3">
+                                <div class="pl-2">2 star</div>
+                            </div>
+                            <div class="col-7">
+                                <div class="bar-container">
+                                    <div class="bar-2" [ngStyle]="setMyStyles(2)"></div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="pr-2">{{ratingList.ratingCount.star_2}}</div>
+                            </div>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-3">
+                                <div class="pl-2">1 star</div>
+                            </div>
+                            <div class="col-7">
+                                <div class="bar-container">
+                                    <div class="bar-1" [ngStyle]="setMyStyles(1)"></div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="pr-2">{{ratingList.ratingCount.star_1}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" *ngIf="show">
+    <div class="row pt-2 pb-2" *ngFor="let rating_obj of ratingList.rating">
+
+        <div class="col-1"></div>
+        <div class="col-2 pl-10">
+            <a class="text-center" routerLink="/author/{{ rating_obj.author.id }}"><img
+                    src="{{rating_obj.author.image}}" class="img img-rounded img-fluid" /></a>
+            <p>{{rating_obj.commentedOn}}</p>
+        </div>
+        <div class="col-9">
+            <p>
+                <a class="float-left"
+                    routerLink="/author/{{ rating_obj.author.id }}"><strong>{{rating_obj.author.name}}</strong></a>
+                <span class="float-right">
+                    <ng-template #t let-fill="fill">
+                        <span class="star-small" [class.full]="fill === 100">
+                            <span class="half" [style.width.%]="fill"><i class="fa fa-heart"
+                                    aria-hidden="true"></i></span><i class="fa fa-heart" aria-hidden="true"></i>
+                        </span>
+                    </ng-template>
+                    <ngb-rating [(rate)]="rating_obj.rating" [starTemplate]="t" [readonly]="true" [max]="5">
+                    </ngb-rating>
+                </span>
+            </p>
+            <div class="clearfix"></div>
+            <p>{{rating_obj.description}}</p>
+        </div>
+    </div>
+</div>
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="reviewForm" (ngSubmit)="updateReview()">
+            <span>
+                <ng-template #t let-fill="fill">
+                    <span class="star-big" [class.full]="fill === 100">
+                        <span class="half" [style.width.%]="fill"><i class="fa fa-heart"
+                                aria-hidden="true"></i></span><i class="fa fa-heart" aria-hidden="true"></i>
+                    </span>
+                </ng-template>
+                <ngb-rating [starTemplate]="t" [readonly]="false" [max]="5" [formControl]="ctrl"></ngb-rating>
+            </span>
+
+            
+            <br>
+            <div class="form-group">
+                <label for="description">Review</label>
+                <input class="form-input custom-select-sm" required matTooltip="About you" matTooltipPosition="above"
+                    formControlName="description" />
+            </div>
+            <div class="modal-footer">
+                <div class="form-group  form-row">
+                    <div class="col">
+                        <button mat-raised-button color="accent" type="submit" class="category-link btn btn-lg"
+                            (click)="modal.close('Save click')"> Add your review </button>
+                    </div>
+                    <div class="col">
+                        <button mat-raised-button type="button" class="btn btn-warning"
+                            (click)="modal.close('Save click')">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>

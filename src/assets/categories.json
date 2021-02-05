@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Nature",
+      "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782081ff6ea1cd_photo-1433890070408-084b6b305d72.jpg",
+      "color": "#008000",
+      "updated_at": "2020-12-23 16:47:58",
+      "last_updated_at": "January 01, 1970"
+    },
+    {
+      "id": 2,
+      "name": "Photography",
+      "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782020a36ea1d5_photo-1416949929422-a1d9c8fe84af.jpg",
+      "color": "#0000ff",
+      "updated_at": "2020-12-23 17:35:30",
+      "last_updated_at": "January 01, 1970"
+    },
+    {
+      "id": 3,
+      "name": "Relaxation",
+      "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782065866ea1c5_photo-1436916154952-3aeb6d98001a.jpg",
+      "color": "#ffa500",
+      "updated_at": "2020-12-23 17:35:30",
+      "last_updated_at": "January 01, 1970"
+    },
+    {
+      "id": 4,
+      "name": "Vacation",
+      "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782087766ea1c4_photo-1440558899941-2b58b4b0e6ad.jpg",
+      "color": "#cc0000",
+      "updated_at": "2020-12-23 16:47:58",
+      "last_updated_at": "January 01, 1970"
+    },
+    {
+      "id": 5,
+      "name": "Travel",
+      "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782002646ea1c3_photo-1437846972679-9e6e537be46e.jpg",
+      "color": "#0099cc",
+      "updated_at": "2020-12-23 17:35:30",
+      "last_updated_at": "January 01, 1970"
+    },
+    {
+      "id": 6,
+      "name": "Adventure",
+      "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd33648147820f6526ea1c9_photo-1436285122087-89584a1d9398.jpg",
+      "color": "#ff0066",
+      "updated_at": "2020-12-23 17:35:30",
+      "last_updated_at": "January 01, 1970"
+    }
+  ]
+}

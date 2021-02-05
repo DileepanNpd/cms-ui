@@ -1,0 +1,29 @@
+<div *ngIf="show">
+  <div class="container">
+    <h1 class="mat-h1 vertical-center-title">Categories</h1>
+    <div class="med-divider"></div>
+  </div>
+  <div id="posts" class="main-section">
+    <div class="w-container">
+      <div class="w-dyn-list">
+        <div role="list" class="w-dyn-items w-row">
+          <div *ngFor="let category of categories" role="listitem" class="w-dyn-item w-col w-col-4">
+            <a routerLink="{{category.path}}" routerLinkActive="active" class="category-block w-inline-block">
+              <div style="background-image:url(&quot;{{category.image}}&quot;)" class="category-thumbnail">
+                <div style="opacity: 0.5" class="dark-overlay"></div>
+              </div>
+              <h3 class="mat-h3 dileepan-text-center pt-2 pb-2 ">{{ category.name }}</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--app-stay-in-touch></app-stay-in-touch-->
+</div>
+
+<div class="container-dileepan" *ngIf="!show">
+  <div class="vertical-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

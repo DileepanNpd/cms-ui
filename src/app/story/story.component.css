@@ -1,0 +1,53 @@
+a {
+  cursor: pointer;
+}
+
+.pagination {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.selectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  color: grey;
+}
+
+.full {
+  color: #E31B23
+}
+
+.test-inline {
+  display: inline-block;
+}
+.test-inline a {
+  float: right;
+}
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: #E31B23
+}
+
+.like-button {
+  margin-left: 14px;
+  position: relative;
+  top: 2px;
+  color: #a6a6a6;
+  cursor: pointer;
+  -webkit-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  background-color: transparent;
+}

@@ -1,0 +1,118 @@
+{
+  "recentPosts": [
+    {
+      "story": {
+        "id": 1,
+        "name": "The Road Ahead",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd33648147820bf0a6ea1d6_photo-1443926818681-717d074a57af.jpg",
+        "description": "The road ahead might be paved - it might be.",
+        "lastModified": "September 25, 2019"
+      },
+      "author": {
+        "id": "1",
+        "name": "Dileepan",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd336481478204d5e6ea1bf_128-14.jpg"
+      },
+      "category": {
+        "id": "1",
+        "name": "PHOTOGRAPHY",
+        "color": "#a872b7"
+      }
+    },
+    {
+      "story": {
+        "id": 2,
+        "name": "From Top Down",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782060266ea1c0_photo-1443304895043-ef30921332c5.jpg",
+        "description": "Once a year, go someplace you've never been before.",
+        "lastModified": "October 25, 2019"
+      },
+      "author": {
+        "id": "1",
+        "name": "Nandhini",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd33648147820a54c6ea192_128-34.jpg"
+      },
+      "category": {
+        "id": 1,
+        "name": "ADVENTURE",
+        "color": "#dd783f"
+      }
+    },
+    {
+      "story": {
+        "id": 1,
+        "name": "The Road Ahead",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd33648147820bf0a6ea1d6_photo-1443926818681-717d074a57af.jpg",
+        "description": "The road ahead might be paved - it might be.",
+        "lastModified": "September 25, 2019"
+      },
+      "author": {
+        "id": "1",
+        "name": "Dileepan",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd336481478204d5e6ea1bf_128-14.jpg"
+      },
+      "category": {
+        "id": 1,
+        "name": "PHOTOGRAPHY",
+        "color": "#a872b7"
+      }
+    },
+    {
+      "story": {
+        "id": 2,
+        "name": "From Top Down",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782060266ea1c0_photo-1443304895043-ef30921332c5.jpg",
+        "description": "Once a year, go someplace you've never been before.",
+        "lastModified": "October 25, 2019"
+      },
+      "author": {
+        "id": "1",
+        "name": "Nandhini",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd33648147820a54c6ea192_128-34.jpg"
+      },
+      "category": {
+        "id": 1,
+        "name": "ADVENTURE",
+        "color": "#dd783f"
+      }
+    },
+    {
+      "story": {
+        "id": 1,
+        "name": "The Road Ahead",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd33648147820bf0a6ea1d6_photo-1443926818681-717d074a57af.jpg",
+        "description": "The road ahead might be paved - it might be.",
+        "lastModified": "September 25, 2019"
+      },
+      "author": {
+        "id": "1",
+        "name": "Dileepan",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd336481478204d5e6ea1bf_128-14.jpg"
+      },
+      "category": {
+        "id": 1,
+        "name": "PHOTOGRAPHY",
+        "color": "#a872b7"
+      }
+    },
+    {
+      "story": {
+        "id": 2,
+        "name": "From Top Down",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd3364814782060266ea1c0_photo-1443304895043-ef30921332c5.jpg",
+        "description": "Once a year, go someplace you've never been before.",
+        "lastModified": "October 25, 2019"
+      },
+      "author": {
+        "id": "1",
+        "name": "Nandhini",
+        "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd33648147820a54c6ea192_128-34.jpg"
+      },
+      "category": {
+        "id": 1,
+        "name": "ADVENTURE",
+        "color": "#dd783f"
+      }
+    }
+  ]
+}

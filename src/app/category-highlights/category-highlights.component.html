@@ -1,0 +1,15 @@
+<div class="category-section" *ngIf="show">
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let category of categories" class="category-wrapper col-sm-12 col-md-4 pt-1 pb-1">
+        <button mat-raised-button color="accent"  routerLink="{{category.path}}" routerLinkActive="active"
+          class="category-link btn btn-lg">{{ category.name }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-dileepan" *ngIf="!show">
+  <div class="vertical-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+{
+    "story": {
+        "id": 1,
+        "name": "The Road Ahead",
+        "description": "The road ahead might be paved - it might be.",
+        "lastModified": "September 25, 2019",
+        "rating": 3.8
+    },
+    "rating": [{
+        "id": 1,
+        "author": {
+            "id": "1",
+            "name": "Dileepan",
+            "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd336481478204d5e6ea1bf_128-14.jpg"
+        },
+        "description": "Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "rating": 3,
+        "commentedOn": "September 25, 2019"
+    },{
+        "id": 1,
+        "author": {
+            "id": "1",
+            "name": "Dileepan",
+            "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd336481478204d5e6ea1bf_128-14.jpg"
+        },
+        "description": "Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "rating": 3,
+        "commentedOn": "September 25, 2019"
+    },{
+        "id": 1,
+        "author": {
+            "id": "1",
+            "name": "Dileepan",
+            "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd336481478204d5e6ea1bf_128-14.jpg"
+        },
+        "description": "Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "rating": 3,
+        "commentedOn": "September 25, 2019"
+    },{
+        "id": 1,
+        "author": {
+            "id": "1",
+            "name": "Dileepan",
+            "image": "https://uploads-ssl.webflow.com/5fd33648147820ab246ea0fb/5fd336481478204d5e6ea1bf_128-14.jpg"
+        },
+        "description": "Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "rating": 3,
+        "commentedOn": "September 25, 2019"
+    }],
+    "ratingCount": {
+        "star_5": "180",
+        "star_4": "150",
+        "star_3": "10",
+        "star_2": "120",
+        "star_1": "106",
+        "total_reviews": "251"
+    }
+}

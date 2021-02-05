@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 pb-5 pt-5" *ngIf="show.profile && !show.error">
+            <div class="author-card pb-3">
+                <div class="author-card-profile">
+                    <img data-w-expand="authors" src="{{ profile.image }}" alt="" class="author-photo pt-3" />
+                    <div class="author-card-details">
+                        <h5 class="author-card-name text-lg">{{ profile.name }}</h5>
+                        <br>
+                        <span class="author-card-position">Joined on &nbsp;:&nbsp;{{ profile.created_at }}</span>
+                        <span class="author-card-position">Email &nbsp;:&nbsp;{{ profile.email }}</span>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <div class="wizard">
+                <div class="card">
+                    <div class="card-block">
+                        <h5 class="card-title">&nbsp;Bio</h5>
+                        <div class="card-text author-bio-npd">
+                            <p> {{ profile.description }} </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-block">
+                        <div class="card-text author-bio-npd">
+                            <p><b>Poetic name&nbsp;:</b>&nbsp;&nbsp; {{ profile.poetic_name }} </p>
+                            <p><b>Total stories&nbsp;:</b>&nbsp;&nbsp; {{ profile.story }}</p>
+                            <p><b>Total episodes&nbsp;:</b>&nbsp;&nbsp;{{ profile.episode }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 pb-5 pt-5" *ngIf="!show.profile && !show.error">
+            <mat-spinner></mat-spinner>
+        </div>
+
+        <div class="col-lg-8 pb-5 pt-5" *ngIf="show.story">
+            <div class="table-responsive" *ngIf="authorStories.stories.length > 0">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Story name</th>
+                            <th>Category</th>
+                            <th>Views</th>
+                            <th>Like</th>
+                            <th>Dislike</th>
+                            <th>Options</th>
+                            <th>Last Modified</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let story of authorStories.stories">
+                            <td>
+                                <a class="npd-text"
+                                    routerLink="/{{ story.story.category }}/கதை/{{ authorStories.author.name}}/{{ story.story.id }}/{{story.story.name}}/1">{{
+                                    story.story.name }}</a>
+                            </td>
+                            <td>{{ story.story.category }}</td>
+                            <td>{{ story.story.views }}</td>
+                            <td>{{ story.story.like }}</td>
+                            <td>{{ story.story.dislike }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip"
+                                    data-placement="top" title="To view your story"
+                                    routerLink="/{{ story.story.category }}/கதை/{{ authorStories.author.name}}/{{ story.story.id }}/{{story.story.name}}/1">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                            </td>
+                            
+                            <td>{{ story.story.lastModified }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="authorStories.stories.length == 0">
+                <br> <br> <br> <br>
+                <div class="author-card pb-3">
+                    <div class="author-card-profile">
+                        <div class="author-card-details">
+                            <h5 class="author-card-name">No stories yet from this author</h5>
+                            <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 pb-5 pt-5" *ngIf="!show.story && !show.error">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+</div>
+<div class="container-dileepan" *ngIf="show.error">
+    <div class="vertical-center">
+        <h1> No users found </h1>
+    </div>
+</div>

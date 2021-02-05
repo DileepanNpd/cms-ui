@@ -1,0 +1,32 @@
+<div class="jumbotron bg-transparent text-center">
+  <div *ngIf="!login" class="card text-center npd-logingcard">
+    <div class="card-block">
+      <br /><br />
+      <p class="card-text">Sign in with <br /><br /></p>
+    </div>
+    <div class="card-block">
+      <button *ngIf="!login" (click)="signInWithGoogle()" class="btn btn-danger">
+        Google <i class="fa fa-google-plus"></i>
+      </button>
+    </div>
+    <br /><br />
+  </div>
+
+  <div *ngIf="login" class="card text-center">
+    <h6 class="card-header">Udhra Siddhart Novels</h6>
+    <div class="card-block"></div>
+    <img *ngIf="sessionUser.image" class="card-img-top img-responsive photo npd-img" src="{{sessionUser.image}}" />
+    <div class="card-block">
+      <h4 class="card-title">{{ sessionUser.name }}</h4>
+      <p class="card-text">{{ sessionUser.email }}</p>
+      <p class="card-text">Logged in with Google</p>
+    </div>
+    <div class="card-block">
+      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+    </div>
+
+    <!-- <div class="card-block" *ngIf="GoogleLoginProvider.PROVIDER_ID !=null && user.provider === GoogleLoginProvider.PROVIDER_ID">
+			<button class="btn" (click)="refreshToken()">Refresh google token</button>
+		</div> -->
+  </div>
+</div>

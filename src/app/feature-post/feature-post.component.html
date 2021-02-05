@@ -1,0 +1,48 @@
+<div id="posts" class="main-section bottom-padding" *ngIf="show && display">
+  <div id="Latest-post" class="w-container">
+    <div class="section-heading">
+      <h2 class="section-title">Featured Posts</h2>
+      <div class="med-divider"></div>
+    </div>
+    <div class="w-dyn-list">
+      <div role="list" class="w-clearfix w-dyn-items w-row">
+        <div *ngFor="let featurePost of featurePosts" role="listitem"
+          class="featuredthumbnail w-dyn-item w-col w-col-6">
+          <a routerLink="/{{ featurePost.category.name }}/கதை/{{ featurePost.author.name}}/{{ featurePost.story.id }}/{{featurePost.story.name}}/1"
+                        routerLinkActive="active" class="featured-wrapper w-inline-block">
+            <div>
+              <div style="background-color:{{featurePost.category.color}}" class="category-tag-2">
+                {{ featurePost.category.name }}
+              </div>
+              <div
+                style="background-image:url(&quot;{{featurePost.story.image}}&quot;);-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                class="featured-image"></div>
+            </div>
+            <div class="featured-text">
+              <div class="featured-title">{{ featurePost.story.name }}</div>
+              <div class="featured-description">
+                {{ featurePost.story.description }}
+              </div>
+              <div class="featured-details">
+                <div class="w-clearfix">
+                  <img src="{{ featurePost.author.image }}" alt="" class="author-img" />
+                  <div class="author-title lite">
+                    {{ featurePost.author.name }}
+                  </div>
+                  <div class="thumbnail-date lite">
+                    {{ featurePost.story.lastModified }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-dileepan" *ngIf="!show && display">
+  <div class="vertical-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div *ngIf="show">
+  <app-my-account></app-my-account>
+  <div class="container-fluid">
+    <div class="story-content">
+      <form [formGroup]="addEpisodeForm" (ngSubmit)="writeStory()">
+        <h2 class="form-title">Add new episode</h2>
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Success!</strong> Episode added successfully.
+          <button type="button" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="form-group">
+          <label for="name">Story name</label>
+          <input matInput class="form-input custom-select-sm" [matAutocomplete]="auto" [formControl]="nameControl"
+            required matTooltip="Type to filter the Story" matTooltipPosition="above" />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let storyobj of filteredStories | async" [value]="storyobj.story.name">
+              <span>{{ storyobj.story.name }}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </div>
+        <div class="form-group" *ngIf="selectedStory != undefined || selectedStory != null">
+          <label for="description">Short description</label>
+          <textarea rows="3" class="form-input form-control custom-select-sm" type="text"
+            formControlName="description">{{ selectedStory.story.description }}</textarea>
+        </div>
+        <div class="form-group form-row" *ngIf="selectedStory != undefined || selectedStory != null">
+          <div class="col">
+            <label for="category">Category</label>
+            <select class="custom-select custom-select" formControlName="category">
+              <option *ngFor="let category of categories" [value]="category.id" [disabled]=true>
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="episode">New Episode no*</label>
+            <input type="text" class="form-input custom-select" formControlName="episode" readonly />
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="story">Story</label>
+          <ejs-richtexteditor [toolbarSettings]="tools" formControlName="story">
+          </ejs-richtexteditor>
+        </div>
+        <div class="form-group" *ngIf="selectedStory != undefined || selectedStory != null">
+          <button mat-raised-button color="accent" type="submit" class="category-link btn btn-lg">Add
+            Episode</button>
+        </div>
+      </form>
+      <div *ngIf="selectedStory == undefined || selectedStory == null">
+        <button mat-raised-button color="accent" class="category-link btn btn-lg"
+          (click)="openSnackBar('No story Selected','Select Story')">Add Episode</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-dileepan" *ngIf="!show">
+  <div class="vertical-center">
+      <mat-spinner></mat-spinner>
+  </div>
+</div>

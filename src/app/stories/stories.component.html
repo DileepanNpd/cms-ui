@@ -1,0 +1,120 @@
+<div class="container">
+    <br>
+    <form [formGroup]="searchForm" (ngSubmit)="searchStories()">
+        <h2 class="form-title">Search stories</h2>
+        <div class="med-divider"></div>
+        <div class="form-group form-row">
+            <div class="col-sm-6 col-md-4">
+                <label for="name">Search by story name</label>
+                <input formControlName="name" matInput class="form-input custom-select-sm" [matAutocomplete]="storyauto"
+                    [formControl]="nameControl" required matTooltip="Type to filter the Story"
+                    matTooltipPosition="above" />
+                <mat-autocomplete #storyauto="matAutocomplete">
+                    <mat-option *ngFor="let storyobj of filteredStories | async" [value]="storyobj.story.name">
+                        <span>{{ storyobj.story.name }}</span>
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <label for="author">Search by Author name</label>
+                <input formControlName="author" matInput class="form-input custom-select-sm"
+                    [matAutocomplete]="authorauto" [formControl]="authorControl" required
+                    matTooltip="Type to filter the Authro" matTooltipPosition="above" />
+                <mat-autocomplete #authorauto="matAutocomplete">
+                    <mat-option *ngFor="let authorObj of filteredAuthors | async" [value]="authorObj.name">
+                        <span>{{ authorObj.name }}</span>
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            <div class="col-sm-4 col-md-2">
+                <label for="author">&nbsp;</label>
+                <button mat-raised-button color="accent" type="submit" class="category-link btn btn-lg">Search</button>
+            </div>
+            <div class="col-sm-4 col-md-2">
+                <label for="author">&nbsp;</label>
+                <button mat-raised-button color="accent" class="category-link btn btn-lg"
+                    (click)="clearSearch()">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="posts" class="main-section bottom-padding" *ngIf="show && display">
+    <div class="w-container">
+        <div class="section-heading">
+            <h2 class="section-title">All Stories</h2>
+            <div class="med-divider"></div>
+        </div>
+        <div class="w-dyn-list" *ngIf="allStories.length > 0">
+            <div role="list" class="w-clearfix w-dyn-items w-row">
+                <div *ngFor="let recentPost of allStories" role="listitem"
+                    class="blog-thumbnail w-dyn-item w-col w-col-4">
+                    <a routerLink="/{{ recentPost.category.name }}/கதை/{{ recentPost.author.name}}/{{ recentPost.story.id }}/{{recentPost.story.name}}/1" routerLinkActive="active"
+                        class="thumbnail-wrapper w-inline-block">
+                        <div class="image-wrapper">
+                            <div style="background-image:url(&quot;{{recentPost.story.image}}&quot;);-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                                class="thumbnail-image"></div>
+                            <div style="background-color: {{ recentPost.category.color }}" class="category-tag">
+                                {{ recentPost.category.name }}
+                            </div>
+                        </div>
+                        <div class="thumbnail-text">
+                            <div class="blog-title">{{ recentPost.story.name }}</div>
+                            <div class="preview-text">{{ recentPost.story.description }}</div>
+                        </div>
+                        <div class="thumb-details w-clearfix">
+                            <img src="{{ recentPost.author.image }}" alt="" class="author-img" />
+                            <div class="author-title">{{ recentPost.author.name }}</div>
+                            <div class="thumbnail-date">
+                                {{ recentPost.story.lastModified }}
+                            </div>
+                        </div>
+                        <div class="thumb-details w-clearfix">
+                            <a routerLink="/rating/{{ recentPost.story.id }}" routerLinkActive="active">
+                                &nbsp;<i class="fa fa-thumbs-up"></i>&nbsp;{{ recentPost.story.like }}&nbsp;
+                                &nbsp;<i class="fa fa-thumbs-down"></i>&nbsp;{{ recentPost.story.dislike }}&nbsp;
+                                &nbsp;<i class="fa fa-eye"></i>&nbsp;{{ recentPost.story.views }}&nbsp;
+                                <div class="thumbnail-date-rating">
+                                    <ng-template #t let-fill="fill">
+                                        <span class="star" [class.full]="fill === 100">
+                                            <span class="half" [style.width.%]="fill"><i class="fa fa-heart" aria-hidden="true"></i></span><i class="fa fa-heart" aria-hidden="true"></i>
+                                        </span>
+                                    </ng-template>
+                                    <ngb-rating [(rate)]="recentPost.story.rating" [starTemplate]="t" [readonly]="true"
+                                        [max]="5">
+                                    </ngb-rating>
+                                </div>
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="allStories.length == 0">
+            <div class="face">
+                <div class="band">
+                    <div class="red"></div>
+                    <div class="white"></div>
+                    <div class="blue"></div>
+                </div>
+                <div class="eyes"></div>
+                <div class="dimples"></div>
+                <div class="mouth"></div>
+            </div>
+            <br>
+            <h1 style="text-align: center;">Oops! No stories in this search criteria!</h1>
+            <div class="row">
+                <div class="col text-center">
+                    <button mat-raised-button color="accent" class="btn btn-lg" (click)="clearSearch()">Reset
+                        search</button>
+                </div>
+            </div>
+            <br><br><br><br><br><br><br><br>
+        </div>
+    </div>
+</div>
+
+<div class="container-dileepan" *ngIf="!show && display">
+    <div class="vertical-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

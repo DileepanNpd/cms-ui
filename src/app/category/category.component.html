@@ -1,0 +1,67 @@
+<div *ngIf="show">
+  <div class="w-container">
+    <h1 class="hero-header">{{ categoryWiseStory.category.name }}</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <img src="{{categoryWiseStory.category.image}}" class="pt-10 pb-10">
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>
+  <div class="main-section" *ngIf="!noStories">
+    <div class="w-container">
+      <div class="w-dyn-list">
+        <div role="list" class="w-clearfix w-dyn-items w-row">
+          <div *ngFor="let tile of categoryWiseStory.stories" role="listitem"
+            class="blog-thumbnail w-dyn-item w-col w-col-4">
+            <a routerLink="/{{ categoryWiseStory.category.name }}/கதை/{{ tile.author.name}}/{{ tile.story.id }}/{{tile.story.name}}/1"
+              routerLinkActive="active" data-w-id="549e20ee-7ffd-01c2-d429-984ecc291bb9"
+              class="thumbnail-wrapper w-inline-block">
+              <div class="image-wrapper">
+                <div
+                  style="background-image:url(&quot;{{tile.story.image}}&quot;);-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                  class="thumbnail-image"></div>
+              </div>
+              <div class="thumbnail-text">
+                <div class="blog-title">{{ tile.story.name }}</div>
+                <div class="preview-text">{{ tile.story.description }}</div>
+              </div>
+              <div class="thumb-details w-clearfix">
+                <img src="{{ tile.author.image }}" alt="" class="author-img" />
+                <div class="author-title">{{ tile.author.name }}</div>
+                <div class="thumbnail-date">{{ tile.story.lastModified }}</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="noStories">
+    <div class="face">
+      <div class="band">
+        <div class="red"></div>
+        <div class="white"></div>
+        <div class="blue"></div>
+      </div>
+      <div class="eyes"></div>
+      <div class="dimples"></div>
+      <div class="mouth"></div>
+    </div>
+    <h1>Oops! No stories in this category right now!</h1>
+    <div class="row">
+      <div class="col text-center">
+        <button mat-raised-button color="accent" class="btn btn-lg" routerLink="/home">Return to Home</button>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+  </div>
+</div>
+<div class="container-dileepan" *ngIf="!show">
+  <div class="vertical-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="row" *ngIf="show">
+  <div class="comments-container">
+    <div class="section-heading">
+      <h2>Join the conversation</h2>
+      <br />
+      <div class="comment-wrapper">
+        <div class="panel panel-info">
+          <div class="panel-body">
+            <form [formGroup]="createThread" (ngSubmit)="createThreadComment()">
+              <textarea class="form-control" placeholder=" write a comment..." rows="3"
+                formControlName="usercomment"></textarea>
+              <br />
+              <div *ngIf="alert_head" class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Login!</strong> Sign in into add your comments.
+              </div>
+              <button type="submit" class="btn btn-info pull-right">
+                &nbsp;&nbsp;&nbsp;Add your comment&nbsp;&nbsp;&nbsp;
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comments-container">
+    <ul id="comments-list" class="comments-list">
+      <li *ngFor="let comment of comments.comments">
+        <div class="comment-main-level">
+          <div class="comment-avatar">
+            <a routerLink="/author/{{ comment.author.id }}"><img src="{{comment.author.image}}" alt="" /></a>
+          </div>
+          <div class="comment-box">
+            <div class="comment-head">
+              <div *ngIf="comment.isAuthor">
+                <h6 class="comment-name by-author">
+                  <a routerLink="/author/{{ comment.author.id }}">{{ comment.author.name }}</a>
+                </h6>
+              </div>
+              <div *ngIf="!comment.isAuthor">
+                <h6 class="comment-name">
+                  <a routerLink="/author/{{ comment.author.id }}">{{ comment.author.name }}</a>
+                </h6>
+              </div>
+              <span>{{ comment.commentedOn }}</span>
+              <button class="fa fa-reply comment-button" (click)="hitReply(comment)">
+                Reply
+              </button>
+              <button class="fa fa-heart comment-button" (click)="hitLike(comment)" [ngStyle]="setMyStyles(comment)">
+                {{ comment.likeCount }}
+              </button>
+            </div>
+            <div class="comment-content">
+              {{ comment.authorComment }}
+            </div>
+          </div>
+        </div>
+        <ul class="comments-list reply-list">
+          <li *ngFor="let subcomment of comment.subComments">
+            <div class="comment-avatar">
+              <img src="{{ subcomment.author.image }}" alt="" />
+            </div>
+            <div class="comment-box">
+              <div class="comment-head">
+                <div *ngIf="subcomment.isAuthor">
+                  <h6 class="comment-name by-author">
+                    <a routerLink="/author/{{ subcomment.author.id }}">{{
+                      subcomment.author.name
+                      }}</a>
+                  </h6>
+                </div>
+                <div *ngIf="!subcomment.isAuthor">
+                  <h6 class="comment-name">
+                    <a routerLink="/author/{{ subcomment.author.id }}">{{
+                      subcomment.author.name
+                      }}</a>
+                  </h6>
+                </div>
+                <span>{{ subcomment.commentedOn }}</span>
+                <button class="fa fa-heart comment-button" (click)="hitLike(subcomment)"
+                  [ngStyle]="setMyStyles(subcomment)">
+                  {{ subcomment.likeCount }}
+                </button>
+              </div>
+              <div class="comment-content">
+                {{ subcomment.authorComment }}
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="comment-wrapper" *ngIf="comment.addComment">
+          <form [formGroup]="subThread" (ngSubmit)="addSubThreadComment(comment)">
+            <div class="panel panel-info">
+              <div class="panel-body">
+                <textarea class="form-control" placeholder=" reply a comment..." rows="3"
+                  formControlName="usercomment"></textarea>
+                <br />
+                <div *ngIf="alert_subhead" class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>Login!</strong> Sign in into add your comments.
+                </div>
+                <button type="submit" class="btn btn-info pull-right">
+                  &nbsp;&nbsp;&nbsp;Reply your comment&nbsp;&nbsp;&nbsp;
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+{
+  "author": {
+    "id": "1",
+    "name": "Dileepan"
+  },
+  "stories": [
+    {
+      "category": {
+        "id": 1,
+        "name": "Nature",
+        "color": "#e6c728"
+      },
+      "story": {
+        "id": 1,
+        "name": "Still Standing Tall",
+        "description": "India is my country da",
+        "episode": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "lastModified": "October 25, 2020"
+      }
+    },
+    {
+      "category": {
+        "id": 3,
+        "name": "Photography",
+        "color": "#e6c728"
+      },
+      "story": {
+        "id": 2,
+        "name": "Photgraphy wins",
+        "episode": [
+          1,
+          2,
+          3
+        ],
+        "lastModified": "September 25, 2020"
+      }
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<div *ngIf="show">
+  <app-my-account></app-my-account>
+  <div class="container-fluid pl-4">
+    <div class="story-content">
+      <form [formGroup]="createStory" (ngSubmit)="writeStory()">
+        <h2 class="form-title">Write a story</h2>
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Success!</strong> Story added successfully.
+          <button type="button" (click)="closeAlert()" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="form-group">
+          <label for="name">Story name</label>
+          <input type="text" class="form-input" formControlName="name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="storyImage">Image - Describe your story theme</label>
+          <input type="file" class="form-control form-control-sm form-control-plaintext"
+            (change)="onFileSelected($event)" formControlName="storyImage" accept="image/*" />
+        </div>
+        <div class="form-group">
+          <label for="description">Short description</label>
+          <textarea class="form-input form-control" type="text" formControlName="description"
+            placeholder="one line/ short description"></textarea>
+        </div>
+        <div class="form-group form-row">
+          <div class="col">
+            <label for="category">Category</label>
+            <select class="custom-select custom-select" formControlName="category">
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="episode">Episode no</label>
+            <input type="text" class="form-input custom-select" formControlName="episode" placeholder="1" readonly />
+          </div>
+        </div>
+        <div class="form-group form-row">
+          <label for="story">Story</label>
+          <ejs-richtexteditor [toolbarSettings]="tools" height="400px" formControlName="story">
+          </ejs-richtexteditor>
+        </div>
+        <div class="form-group">
+          <button mat-raised-button color="accent" type="submit" class="category-link btn btn-lg">Submit Story</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="container-dileepan" *ngIf="!show">
+  <div class="vertical-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div id="posts" class="main-section bottom-padding" *ngIf="show && display">
+    <div class="w-container">
+        <div class="section-heading">
+            <h2 class="section-title">Most Recent</h2>
+            <div class="med-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+            <div role="list" class="w-clearfix w-dyn-items w-row">
+                <div *ngFor="let recentPost of recentPosts" role="listitem"
+                    class="blog-thumbnail w-dyn-item w-col w-col-4">
+                    <a routerLink="/{{ recentPost.category.name }}/கதை/{{ recentPost.author.name}}/{{ recentPost.story.id }}/{{recentPost.story.name}}/1"
+                        routerLinkActive="active" class="thumbnail-wrapper w-inline-block">
+                        <div class="image-wrapper">
+                            <div style="background-image:url(&quot;{{recentPost.story.image}}&quot;);-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
+                                class="thumbnail-image"></div>
+                            <div style="background-color: {{ recentPost.category.color }}" class="category-tag">
+                                {{ recentPost.category.name }}
+                            </div>
+                        </div>
+                        <div class="thumbnail-text">
+                            <div class="blog-title">{{ recentPost.story.name }}</div>
+                            <div class="preview-text">{{ recentPost.story.description }}</div>
+                        </div>
+                        <div class="thumb-details w-clearfix">
+                            <img src="{{ recentPost.author.image }}" alt="" class="author-img" />
+                            <div class="author-title">{{ recentPost.author.name }}</div>
+                            <div class="thumbnail-date">
+                                {{ recentPost.story.lastModified }}
+                            </div>
+                        </div>
+                        <div class="thumb-details w-clearfix">
+                            <a routerLink="/rating/{{ recentPost.story.id }}" routerLinkActive="active">
+                                &nbsp;<i class="fa fa-thumbs-up"></i>&nbsp;{{ recentPost.story.like }}&nbsp;
+                                &nbsp;<i class="fa fa-thumbs-down"></i>&nbsp;{{ recentPost.story.dislike }}&nbsp;
+                                &nbsp;<i class="fa fa-eye"></i>&nbsp;{{ recentPost.story.views }}&nbsp;
+                                <div class="thumbnail-date-rating">
+                                    <ng-template #t let-fill="fill">
+                                        <span class="star" [class.full]="fill === 100">
+                                            <span class="half" [style.width.%]="fill"><i class="fa fa-heart"
+                                                    aria-hidden="true"></i></span><i class="fa fa-heart"
+                                                aria-hidden="true"></i>
+                                        </span>
+                                    </ng-template>
+                                    <ngb-rating [(rate)]="recentPost.story.rating" [starTemplate]="t" [readonly]="true"
+                                        [max]="5">
+                                    </ngb-rating>
+                                </div>
+                            </a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-dileepan" *ngIf="!show && display">
+    <div class="vertical-center">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>

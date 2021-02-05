@@ -1,0 +1,27 @@
+.bg-transparent {
+  background-color: transparent;
+}
+
+:host {
+  height: 100%;
+}
+
+.photo {
+  object-fit: contain;
+}
+
+.card {
+  width: 20rem;
+  margin: 0 auto;
+}
+
+#demo {
+  margin-top: 56px;
+}
+
+.npd-img {
+  height: 100px;
+  border-radius: 50%;
+  width: 100px;
+  align-self: center;
+}
