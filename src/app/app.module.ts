@@ -18,6 +18,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidenavResponsiveComponent } from './sidenav-responsive/sidenav-responsive.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdsenseModule } from 'ng2-adsense';
 
 import {
   SocialLoginModule,
@@ -79,6 +80,10 @@ import { DemoMaterialModule } from './material.module';
   imports: [
     BrowserModule.withServerTransition({
       appId: 'ng-universal-demystified'
+    }),
+    AdsenseModule.forRoot({
+      adClient: 'ca-pub-1964144255874029',
+      adSlot: 7259870550,
     }),
     BrowserAnimationsModule,
     AppRoutingModule,
