@@ -24,7 +24,7 @@ export class RecentPostComponent implements OnInit {
       )
       .subscribe((data) => {
         this.recentPosts = data.stories;
-        if (data.stories.length > 0) {
+        if (data.stories != undefined && data.stories.length > 0) {
           this.show = true;
         } else {
           this.display = false;

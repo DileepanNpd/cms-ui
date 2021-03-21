@@ -22,7 +22,7 @@ export class FeaturePostComponent implements OnInit {
       )
       .subscribe((data) => {
         this.featurePosts = data.stories;
-        if (data.stories.length > 0) {
+        if (data.stories != undefined && data.stories.length > 0) {
           this.show = true;
         } else {
           this.display = false;
