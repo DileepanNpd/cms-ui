@@ -25,14 +25,24 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpClient
-      .get<RecentPostList>(
-        environment.service_url + 'carousel_stories',
-        this.httpOptions
-      ).subscribe((data) => {
-        this.carouselStories = data.stories;
-        this.show = true;
-      });
+    let carouselStoriesFlag = localStorage.getItem("carouselStoriesFlag");
+    if (carouselStoriesFlag != null && carouselStoriesFlag != undefined && carouselStoriesFlag == "true") {
+      this.carouselStories = JSON.parse(localStorage.getItem('carouselStories'));
+      this.show = true;
+    } else {
+      this.httpClient
+        .get<RecentPostList>(
+          environment.service_url + 'carousel_stories',
+          this.httpOptions
+        ).subscribe((data) => {
+          this.carouselStories = data.stories;
+          if (data != null && data.stories != null && data.stories != undefined) {
+            localStorage.setItem('carouselStories', JSON.stringify(data.stories));
+            localStorage.setItem('carouselStoriesFlag', "true");
+          }
+          this.show = true;
+        });
+    }
   }
 
 }

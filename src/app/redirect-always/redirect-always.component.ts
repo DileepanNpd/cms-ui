@@ -17,10 +17,11 @@ export class RedirectAlwaysComponent implements OnInit {
       let author = params['author'];
       let storyName = params['storyName'];
       let episode = params['episode'];
-      if(episode == undefined) {
+      if (episode == undefined) {
         episode = 1;
       }
-      this.router.navigate(['/' + category + '/கதை/' + author + '/' + storyId + '/' + storyName + '/' + episode]);
+      // this.router.navigate(['/' + category + '/கதை/' + author + '/' + storyId + '/' + storyName + '/' + episode]);
+      this.router.navigate(['/story/' + storyId + '/episode/' + episode]);
     });
 
   }

@@ -15,18 +15,26 @@ export class FeaturePostComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.httpClient
-      .get<FeaturePostList>(
-        environment.service_url + 'feature_posts',
-        this.httpOptions
-      )
-      .subscribe((data) => {
-        this.featurePosts = data.stories;
-        if (data.stories != undefined && data.stories.length > 0) {
-          this.show = true;
-        } else {
-          this.display = false;
-        }
-      });
+    let carouselStoriesFlag = localStorage.getItem("featurePostsFlag");
+    if (carouselStoriesFlag != null && carouselStoriesFlag != undefined && carouselStoriesFlag == "true") {
+      this.featurePosts = JSON.parse(localStorage.getItem('featurePosts'));
+      this.show = true;
+    } else {
+      this.httpClient
+        .get<FeaturePostList>(
+          environment.service_url + 'feature_posts',
+          this.httpOptions
+        )
+        .subscribe((data) => {
+          this.featurePosts = data.stories;
+          if (data.stories != undefined && data.stories.length > 0) {
+            localStorage.setItem('featurePosts', JSON.stringify(data.stories));
+            localStorage.setItem('featurePostsFlag', "true");
+            this.show = true;
+          } else {
+            this.display = false;
+          }
+        });
+    }
   }
 }

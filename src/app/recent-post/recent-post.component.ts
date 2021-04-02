@@ -17,18 +17,26 @@ export class RecentPostComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.httpClient
-      .get<RecentPostList>(
-        environment.service_url + 'recent_posts',
-        this.httpOptions
-      )
-      .subscribe((data) => {
-        this.recentPosts = data.stories;
-        if (data.stories != undefined && data.stories.length > 0) {
-          this.show = true;
-        } else {
-          this.display = false;
-        }
-      });
+    let carouselStoriesFlag = localStorage.getItem("recentPostsFlag");
+    if (carouselStoriesFlag != null && carouselStoriesFlag != undefined && carouselStoriesFlag == "true") {
+      this.recentPosts = JSON.parse(localStorage.getItem('recentPosts'));
+      this.show = true;
+    } else {
+      this.httpClient
+        .get<RecentPostList>(
+          environment.service_url + 'recent_posts',
+          this.httpOptions
+        )
+        .subscribe((data) => {
+          this.recentPosts = data.stories;
+          if (data.stories != undefined && data.stories.length > 0) {
+            localStorage.setItem('recentPosts', JSON.stringify(data.stories));
+            localStorage.setItem('recentPostsFlag', "true");
+            this.show = true;
+          } else {
+            this.display = false;
+          }
+        });
+    }
   }
 }
