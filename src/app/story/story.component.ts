@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnChanges, SimpleChanges, ViewEncapsulation, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ViewStory, Constants, CommonResponse } from '../model/common';
 import { environment } from 'src/environments/environment';
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./story.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class StoryComponent implements OnInit, OnChanges {
+export class StoryComponent implements OnInit, OnChanges, AfterViewInit {
   show: boolean = false;
   storyDescription: string = '';
   viewStory!: ViewStory;
@@ -209,5 +209,15 @@ export class StoryComponent implements OnInit, OnChanges {
       .post<CommonResponse>(environment.service_url + 'update_story_reaction', updateReaction, this.httpOptions)
       .subscribe((data) => {
       });
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      try {
+        (window['adsbygoogle'] = window['adsbygoogle'] || []).push({});
+        (window['adsbygoogle'] = window['adsbygoogle'] || []).push({});
+        (window['adsbygoogle'] = window['adsbygoogle'] || []).push({});
+      } catch (e) { }
+    }, 500);
   }
 }
