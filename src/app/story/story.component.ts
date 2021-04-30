@@ -33,6 +33,7 @@ export class StoryComponent implements OnInit, OnChanges {
   httpOptions = Constants.httpOptions;
   pager: any = {};
   sanitizer!: DomSanitizer;
+  websiteUrl: string = '';
 
   constructor(
     private httpClient: HttpClient,
@@ -57,6 +58,7 @@ export class StoryComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.sanitizer = this.sanitizerObj;
+    this.websiteUrl = environment.domain_url + this.router.url;
     this.activatedRoute.params.subscribe((params) => {
       let storyId = params['storyId'];
       let category = params['category'];
