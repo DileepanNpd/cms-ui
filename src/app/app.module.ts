@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -98,6 +98,7 @@ import { DemoMaterialModule } from './material.module';
     //MatNativeDateModule
   ],
   providers: [
+    Meta,
     AuthGuard,
     CookieService,
     LoginService,
