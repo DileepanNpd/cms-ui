@@ -32,6 +32,8 @@ const routes: Routes = [
   { path: 'category/:categoryId', component: CategoryComponent },
   { path: 'story/:storyId', component: StoryComponent },
   { path: 'story/:storyId/episode/:episode', component: StoryComponent },
+  { path: ':storyName/:storyId', component: StoryComponent },
+  { path: ':storyName/:storyId/:episode', component: StoryComponent },
   { path: ':category/கதை/:author/:storyId/:storyName', component: RedirectAlwaysComponent },
   { path: ':category/கதை/:author/:storyId/:storyName/:episode', component: RedirectAlwaysComponent },
   { path: 'home', component: DashboardComponent },

@@ -46,6 +46,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RedirectAlwaysComponent } from './redirect-always/redirect-always.component';
 import { DemoMaterialModule } from './material.module';
+import { ShareService } from './services/share.service';
+import { LinkService } from './services/link.service';
 
 
 @NgModule({
@@ -102,6 +104,8 @@ import { DemoMaterialModule } from './material.module';
     AuthGuard,
     CookieService,
     LoginService,
+    ShareService,
+    LinkService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

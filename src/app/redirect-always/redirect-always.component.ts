@@ -21,7 +21,7 @@ export class RedirectAlwaysComponent implements OnInit {
         episode = 1;
       }
       // this.router.navigate(['/' + category + '/கதை/' + author + '/' + storyId + '/' + storyName + '/' + episode]);
-      this.router.navigate(['/story/' + storyId + '/episode/' + episode]);
+      this.router.navigate(['/' + storyName + '/' + storyId + '/' + episode]);
     });
 
   }

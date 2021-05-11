@@ -7,9 +7,9 @@ import { environment } from 'src/environments/environment';
 import paginate = require('jw-paginate');
 import { LoginService } from '../services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter, map } from 'rxjs/operators';
-import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+import { ShareService } from '../services/share.service';
+import { LinkService } from '../services/link.service';
 
 @Component({
   selector: 'app-story',
@@ -44,9 +44,8 @@ export class StoryComponent implements OnInit, OnChanges {
     private _loginService: LoginService,
     private _snackBar: MatSnackBar,
     private router: Router,
-    public metaService: Meta,
-    public title: Title,
-    private titleService: Title
+    private shareService: ShareService,
+    private linkService: LinkService
   ) {
     this._loginService.cookieValue.subscribe((cookieValue) => {
       if (cookieValue != '') {
@@ -233,22 +232,12 @@ export class StoryComponent implements OnInit, OnChanges {
   }
 
   addTag() {
-    this.metaService.removeTag("name='description'")
-    this.metaService.updateTag({ property: 'og:url', content: this.router.url })
-    this.metaService.removeTag("property='og:title'")
-    this.metaService.removeTag("property='og:description'")
-    this.metaService.removeTag("property='og:image'")
-    this.metaService.updateTag({ property: 'og:url', content: this.websiteUrl })
-    this.metaService.updateTag({ property: 'og:title', content: this.viewStory.story.name })
-    this.metaService.updateTag({ property: 'og:description', content: 'Heart winning tamil novels - Great place to read novels' })
-    this.metaService.updateTag({ property: 'og:image', content: this.viewStory.story.image })
-    this.metaService.updateTag({ property: 'og:type', content: 'article' })
-    // this.metaService.addTag({ name: 'description', content: 'Heart winning tamil novels - Great place to read novels' });
-    // this.metaService.addTag({ property: 'og:title', content: this.viewStory.story.name });
-    // this.metaService.addTag({ property: 'og:description', content: 'Heart winning tamil novels' });
-    // this.metaService.addTag({ property: 'og:url', content: this.websiteUrl });
-    // this.metaService.addTag({ property: 'og:image', content:  this.viewStory.story.image });
-    // this.metaService.addTag({ property: 'og:type', content: 'article' });
+    this.shareService.setFacebookTags(
+      this.websiteUrl,
+      this.viewStory.story.name,
+      'Heart winning tamil novels - Great place to read novels',
+      this.viewStory.story.image);
+    this.linkService.createCanonicalURL(this.websiteUrl);
   }
 
   getChild(activatedRoute: ActivatedRoute) {
