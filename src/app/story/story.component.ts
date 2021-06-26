@@ -8,6 +8,8 @@ import paginate = require('jw-paginate');
 import { LoginService } from '../services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { ShareService } from '../services/share.service';
+import { LinkService } from '../services/link.service';
 
 @Component({
   selector: 'app-story',
@@ -33,6 +35,7 @@ export class StoryComponent implements OnInit, OnChanges {
   httpOptions = Constants.httpOptions;
   pager: any = {};
   sanitizer!: DomSanitizer;
+  websiteUrl: string = '';
 
   constructor(
     private httpClient: HttpClient,
@@ -40,7 +43,9 @@ export class StoryComponent implements OnInit, OnChanges {
     private sanitizerObj: DomSanitizer,
     private _loginService: LoginService,
     private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private shareService: ShareService,
+    private linkService: LinkService
   ) {
     this._loginService.cookieValue.subscribe((cookieValue) => {
       if (cookieValue != '') {
@@ -56,7 +61,9 @@ export class StoryComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.websiteUrl = environment.domain_url + this.router.url;
     this.sanitizer = this.sanitizerObj;
+    this.websiteUrl = environment.domain_url + this.router.url;
     this.activatedRoute.params.subscribe((params) => {
       let storyId = params['storyId'];
       let category = params['category'];
@@ -73,6 +80,7 @@ export class StoryComponent implements OnInit, OnChanges {
           this.viewStory = data;
           this.storyDescription = this.viewStory.story.stories[0];
           this.items = this.viewStory.story.episode;
+          this.addTag();
           if (this.items && this.items.length) {
             this.setPage(this.initialPage);
           }
@@ -221,5 +229,22 @@ export class StoryComponent implements OnInit, OnChanges {
         (window['adsbygoogle'] = window['adsbygoogle'] || []).push({});
       } catch (e) { }
     }, 500);
+  }
+
+  addTag() {
+    this.shareService.setFacebookTags(
+      this.websiteUrl,
+      this.viewStory.story.name,
+      'Heart winning tamil novels - Great place to read novels',
+      this.viewStory.story.image);
+    this.linkService.createCanonicalURL(this.websiteUrl);
+  }
+
+  getChild(activatedRoute: ActivatedRoute) {
+    if (activatedRoute.firstChild) {
+      return this.getChild(activatedRoute.firstChild);
+    } else {
+      return activatedRoute;
+    }
   }
 }

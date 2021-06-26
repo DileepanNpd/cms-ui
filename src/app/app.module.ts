@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +47,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RedirectAlwaysComponent } from './redirect-always/redirect-always.component';
 import { DemoMaterialModule } from './material.module';
+import { ShareService } from './services/share.service';
+import { LinkService } from './services/link.service';
 
 
 @NgModule({
@@ -100,9 +102,12 @@ import { DemoMaterialModule } from './material.module';
     //MatNativeDateModule
   ],
   providers: [
+    Meta,
     AuthGuard,
     CookieService,
     LoginService,
+    ShareService,
+    LinkService,
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {

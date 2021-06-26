@@ -14,7 +14,8 @@
     "dev:ssr": "ng run udhra-tamil-novels:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
     "build:ssr": "ng build --prod && ng run udhra-tamil-novels:server:production",
-    "prerender": "ng run udhra-tamil-novels:prerender"
+    "prerender": "ng run udhra-tamil-novels:prerender",
+    "prod-opt": "ng build --prod --aot --build-optimizer"
   },
   "private": true,
   "dependencies": {
