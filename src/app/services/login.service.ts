@@ -10,7 +10,7 @@ import { CommonResponse, Constants } from '../model/common';
 
 @Injectable()
 export class LoginService {
-    private value = new BehaviorSubject<string>('');
+    value = new BehaviorSubject<string>('');
     cookieValue = this.value.asObservable();
     cookie: string = '';
     sessionUser!: any;
@@ -71,17 +71,19 @@ export class LoginService {
                     );
                 } else {
                     this.cookie = this.cookieService.get('novel-session');
-                    let seseion = JSON.parse(this.cookie);
-                    let cookieObj = {
-                        id: seseion.id
-                    };
-                    this.httpClient.post<CommonResponse>(
-                        environment.service_url + 'logout',
-                        cookieObj,
-                        this.httpOptions
-                    ).subscribe();
-                    this.cookieService.delete('novel-session');
-                    this.value.next('');
+                    this.value.next(this.cookie);
+                    // this.cookie = this.cookieService.get('novel-session');
+                    // let seseion = JSON.parse(this.cookie);
+                    // let cookieObj = {
+                    //     id: seseion.id
+                    // };
+                    // this.httpClient.post<CommonResponse>(
+                    //     environment.service_url + 'logout',
+                    //     cookieObj,
+                    //     this.httpOptions
+                    // ).subscribe();
+                    // this.cookieService.delete('novel-session');
+                    // this.value.next('');
                 }
             },
             (err) => {

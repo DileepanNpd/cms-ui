@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidenavResponsiveComponent } from './sidenav-responsive/sidenav-responsive.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdsenseModule } from 'ng2-adsense';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import {
   SocialLoginModule,
@@ -78,6 +79,7 @@ import { DemoMaterialModule } from './material.module';
     RedirectAlwaysComponent
   ],
   imports: [
+    FlexLayoutModule,
     BrowserModule.withServerTransition({
       appId: 'ng-universal-demystified'
     }),

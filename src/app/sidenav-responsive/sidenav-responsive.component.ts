@@ -3,6 +3,11 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { SocialAuthService, GoogleLoginProvider } from 'angularx-social-login';
 import { environment } from 'src/environments/environment';
 import { LoginService } from '../services/login.service';
+import { CookieService } from 'ngx-cookie-service';
+import { CommonResponse, Constants } from '../model/common';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'sidenav-responsive',
   templateUrl: 'sidenav-responsive.component.html',
@@ -16,10 +21,14 @@ export class SidenavResponsiveComponent implements OnDestroy, OnInit {
   opened: boolean = false;
   sessionUser: any = {};
   private _mobileQueryListener: () => void;
+  cookieValue = this._loginService.value.asObservable();
+  cookie: string = '';
+  httpOptions = Constants.httpOptions;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
-    private _loginService: LoginService, private authService: SocialAuthService
+    private _loginService: LoginService, private authService: SocialAuthService,
+    private cookieService: CookieService, private httpClient: HttpClient, private router: Router
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -44,10 +53,7 @@ export class SidenavResponsiveComponent implements OnDestroy, OnInit {
   }
 
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {
-    }).catch(e => {
-      alert('Please enable cookies & refresh the page, you will be signed in with google');
-    });
+    this.router.navigateByUrl("/login");
   }
 
   ngOnInit(): void {
@@ -59,6 +65,18 @@ export class SidenavResponsiveComponent implements OnDestroy, OnInit {
 
   signOut(): void {
     this.authService.signOut(true);
+    this.cookie = this.cookieService.get('novel-session');
+    let seseion = JSON.parse(this.cookie);
+    let cookieObj = {
+      id: seseion.id
+    };
+    this.httpClient.post<CommonResponse>(
+      environment.service_url + 'logout',
+      cookieObj,
+      this.httpOptions
+    ).subscribe();
+    this.cookieService.delete('novel-session');
+    this._loginService.value.next('');
   }
 
   sideNavResponsive(): void {

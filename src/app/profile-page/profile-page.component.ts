@@ -9,6 +9,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -40,7 +41,8 @@ export class ProfilePageComponent implements OnInit {
     private modalService: NgbModal,
     private formBuilder: FormBuilder,
     private _loginService: LoginService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {
     this._loginService.cookieValue.subscribe((cookieValue) => {
       if (cookieValue != '') {
@@ -63,10 +65,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   signInWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((response) => {
-    }).catch(e => {
-      alert('Please enable cookies & refresh the page, you will be signed in with google');
-    });
+    this.router.navigateByUrl("/login");
   }
 
   onLogin() {

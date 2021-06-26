@@ -1,32 +1,88 @@
-<div class="jumbotron bg-transparent text-center">
-  <div *ngIf="!login" class="card text-center npd-logingcard">
-    <div class="card-block">
-      <br /><br />
-      <p class="card-text">Sign in with <br /><br /></p>
-    </div>
-    <div class="card-block">
-      <button *ngIf="!login" (click)="signInWithGoogle()" class="btn btn-danger">
-        Google <i class="fa fa-google-plus"></i>
-      </button>
-    </div>
-    <br /><br />
+<div *ngIf="!login && !signup" class="pt-5">
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-subtitle>Log in</mat-card-subtitle>
+      </mat-card-header>
+
+      <form [formGroup]="loginForm" class="example-form-login">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput type="email" placeholder="Email" formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="Password" formControlName="password">
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="accent" class="btn-block" (click)="loginClick()"
+          [disabled]='!loginForm.valid'>Log in</button>
+      </form>
+      <br>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-card-actions>
+        <span class="text-center pt-5 pb-5">Login with Gmail</span>
+        <button *ngIf="!login" (click)="signInWithGoogle()" class="btn btn-danger btn-block">
+          Google <i class="fa fa-google-plus"></i>
+        </button>
+        <br>
+        Not an user? <button class="btn" (click)="registerHere()"> <u>Register here</u></button>
+      </mat-card-actions>
+    </mat-card>
   </div>
+</div>
 
-  <div *ngIf="login" class="card text-center">
-    <h6 class="card-header">Udhra Siddhart Novels</h6>
-    <div class="card-block"></div>
-    <img *ngIf="sessionUser.image" class="card-img-top img-responsive photo npd-img" src="{{sessionUser.image}}" />
-    <div class="card-block">
-      <h4 class="card-title">{{ sessionUser.name }}</h4>
-      <p class="card-text">{{ sessionUser.email }}</p>
-      <p class="card-text">Logged in with Google</p>
+<div *ngIf="login && !signup">
+  <div class="jumbotron bg-transparent text-center">
+    <div class="card text-center">
+      <h6 class="card-header">Udhra Siddhart Novels</h6>
+      <div class="card-block"></div>
+      <img *ngIf="sessionUser.image" class="card-img-top img-responsive photo npd-img" src="{{sessionUser.image}}" />
+      <div class="card-block">
+        <h4 class="card-title">{{ sessionUser.name }}</h4>
+        <p class="card-text">{{ sessionUser.email }}</p>
+        <p class="card-text">Logged in with Google</p>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
+      </div>
     </div>
-    <div class="card-block">
-      <button class="btn btn-danger" (click)="signOut()">Sign out</button>
-    </div>
+  </div>
+</div>
 
-    <!-- <div class="card-block" *ngIf="GoogleLoginProvider.PROVIDER_ID !=null && user.provider === GoogleLoginProvider.PROVIDER_ID">
-			<button class="btn" (click)="refreshToken()">Refresh google token</button>
-		</div> -->
+
+<div *ngIf="signup" class="pt-5">
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-subtitle>Register</mat-card-subtitle>
+      </mat-card-header>
+
+      <form [formGroup]="registerForm" class="example-form-signup">
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" formControlName="user">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput type="email" placeholder="Email" formControlName="email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="Password" formControlName="password">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="Confirm Passowrd" formControlName="password2">
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-stroked-button color="accent" class="btn-block" (click)="register()"
+          [disabled]='!registerForm.valid'>Register</button>
+        <br>
+        <br>
+        <span>Already user? <button class="btn" (click)="LoginHere()"> <u>Login</u></button></span>
+      </form>
+    </mat-card>
   </div>
 </div>

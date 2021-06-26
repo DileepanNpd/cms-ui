@@ -13,7 +13,7 @@
     <div class="dropdown">
       <button *ngIf="login && !mobileQuery.matches" mat-raised-button color="accent" type="button"
         id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{ sessionUser.name }}
+        {{ sessionUser.author.name }}
       </button>
 
       <div *ngIf="login && mobileQuery.matches">
