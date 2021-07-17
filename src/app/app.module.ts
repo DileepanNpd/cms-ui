@@ -49,6 +49,7 @@ import { RedirectAlwaysComponent } from './redirect-always/redirect-always.compo
 import { DemoMaterialModule } from './material.module';
 import { ShareService } from './services/share.service';
 import { LinkService } from './services/link.service';
+import { MemeCompComponent } from './meme-comp/meme-comp.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { LinkService } from './services/link.service';
     AuthorComponent,
     CarouselComponent,
     RatingsComponent,
-    RedirectAlwaysComponent
+    RedirectAlwaysComponent,
+    MemeCompComponent
   ],
   imports: [
     FlexLayoutModule,

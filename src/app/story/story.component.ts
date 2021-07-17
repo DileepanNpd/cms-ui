@@ -36,6 +36,7 @@ export class StoryComponent implements OnInit, OnChanges {
   pager: any = {};
   sanitizer!: DomSanitizer;
   websiteUrl: string = '';
+  isMeme: boolean = false;
 
   constructor(
     private httpClient: HttpClient,
@@ -78,6 +79,9 @@ export class StoryComponent implements OnInit, OnChanges {
         )
         .subscribe((data) => {
           this.viewStory = data;
+          if (this.viewStory.category.id == 17) {
+            this.isMeme = true;
+          }
           this.storyDescription = this.viewStory.story.stories[0];
           this.items = this.viewStory.story.episode;
           this.addTag();

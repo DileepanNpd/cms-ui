@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditStoryComponent } from './edit-story/edit-story.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
+import { MemeCompComponent } from './meme-comp/meme-comp.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RedirectAlwaysComponent } from './redirect-always/redirect-always.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'account', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'create-story', component: CreateStoryComponent, canActivate: [AuthGuard] },
+  { path: 'create-meme', component: MemeCompComponent, canActivate: [AuthGuard] },
   { path: 'கதை/கதை/edit-story/:storyId', component: EditStoryComponent, canActivate: [AuthGuard] },
   { path: 'கதை/கதை/add-episode/:storyId', component: AddEpisodeComponent, canActivate: [AuthGuard] },
   { path: 'author/:authorId', component: AuthorComponent },
