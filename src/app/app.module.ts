@@ -50,6 +50,7 @@ import { DemoMaterialModule } from './material.module';
 import { ShareService } from './services/share.service';
 import { LinkService } from './services/link.service';
 import { MemeCompComponent } from './meme-comp/meme-comp.component';
+import { DummyPageComponent } from './dummy-page/dummy-page.component';
 
 
 @NgModule({
@@ -80,7 +81,8 @@ import { MemeCompComponent } from './meme-comp/meme-comp.component';
     CarouselComponent,
     RatingsComponent,
     RedirectAlwaysComponent,
-    MemeCompComponent
+    MemeCompComponent,
+    DummyPageComponent
   ],
   imports: [
     FlexLayoutModule,
