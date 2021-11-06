@@ -2,15 +2,13 @@
     <div class="container">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Display ad 1 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029"
-            data-ad-slot="7651701021" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="7651701021" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- Display Ads 2 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029"
-            data-ad-slot="6995629868" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="6995629868" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
@@ -18,7 +16,7 @@
             <br>
             <br>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="!isFullStoryPage">
 
             <div class="col-1"></div>
             <div class="col-10">
@@ -29,32 +27,28 @@
     </div>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Display ad 1 -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="7651701021"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="7651701021" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- Display Ads 2 -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="6995629868"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="6995629868" data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    <div class="main-section">
+    <div class="main-section" *ngIf="!isFullStoryPage">
         <div class="w-container">
             <div class="section-heading">
                 <h1 class="blog-post-title">{{ viewStory.story.name }}</h1>
                 <div class="blog-date">{{ viewStory.story.lastModified }}</div>
-                <a routerLink="/category/{{ viewStory.category.id }}" routerLinkActive="active" data-w-expand="category"
-                    style="color:{{ viewStory.category.color }}" class="blog-category"> {{
+                <a routerLink="/category/{{ viewStory.category.id }}" routerLinkActive="active" data-w-expand="category" style="color:{{ viewStory.category.color }}" class="blog-category"> {{
                     viewStory.category.name }}
                 </a>
                 <button class="fa fa-thumbs-up fa-lg like-button" (click)="hitLike()" [ngStyle]="setLikeStyle()"> {{
                     viewStory.story.like }}
                 </button>
-                <button class="fa fa-thumbs-down fa-lg like-button" (click)="hitDislike()"
-                    [ngStyle]="setDislikeStyle()"> {{ viewStory.story.dislike }} </button>
+                <button class="fa fa-thumbs-down fa-lg like-button" (click)="hitDislike()" [ngStyle]="setDislikeStyle()"> {{ viewStory.story.dislike }} </button>
                 <i class="fa fa-eye fa-lg like-button" aria-hidden="true">&nbsp;{{ viewStory.story.views }}&nbsp;</i>
                 <div class="pt-2">
                     <a routerLink="/rating/{{ viewStory.story.id }}" routerLinkActive="active">
@@ -79,8 +73,7 @@
                     <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item previous-item">
                         <a (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</a>
                     </li>
-                    <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }"
-                        class="page-item number-item">
+                    <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }" class="page-item number-item">
                         <a (click)="setPage(page)" class="page-link">{{ page }}</a>
                     </li>
                     <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item next-item">
@@ -94,98 +87,93 @@
             </div>
         </div>
     </div>
-    <div class="container selectable no-print" [innerHTML]="sanitizer.bypassSecurityTrustHtml(storyDescription)"
-        *ngIf="!isMeme">
+    <div class="container selectable no-print" [innerHTML]="sanitizer.bypassSecurityTrustHtml(storyDescription)" *ngIf="!isMeme">
     </div>
-    <div class="full-divide" *ngIf="!isMeme"></div>
-    <div class="section-heading" *ngIf="!isMeme">
-        <h2>Episodes</h2>
+    <div *ngIf="!isFullStoryPage">
+        <div class="full-divide" *ngIf="!isMeme"></div>
+        <div class="section-heading" *ngIf="!isMeme">
+            <h2>Episodes</h2>
+        </div>
+        <ul *ngIf="!isMeme && pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item first-item">
+                <a (click)="setPageBottom(1)" class="page-link">First</a>
+            </li>
+            <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item previous-item">
+                <a (click)="setPageBottom(pager.currentPage - 1)" class="page-link">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }" class="page-item number-item">
+                <a (click)="setPageBottom(page)" class="page-link">{{ page }}</a>
+            </li>
+            <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item next-item">
+                <a (click)="setPageBottom(pager.currentPage + 1)" class="page-link">Next</a>
+            </li>
+            <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item last-item">
+                <a (click)="setPageBottom(pager.totalPages)" class="page-link">Last</a>
+            </li>
+        </ul>
     </div>
-    <ul *ngIf="!isMeme && pager.pages && pager.pages.length" class="pagination">
-        <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item first-item">
-            <a (click)="setPageBottom(1)" class="page-link">First</a>
-        </li>
-        <li [ngClass]="{ disabled: pager.currentPage === 1 }" class="page-item previous-item">
-            <a (click)="setPageBottom(pager.currentPage - 1)" class="page-link">Previous</a>
-        </li>
-        <li *ngFor="let page of pager.pages" [ngClass]="{ active: pager.currentPage === page }"
-            class="page-item number-item">
-            <a (click)="setPageBottom(page)" class="page-link">{{ page }}</a>
-        </li>
-        <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item next-item">
-            <a (click)="setPageBottom(pager.currentPage + 1)" class="page-link">Next</a>
-        </li>
-        <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }" class="page-item last-item">
-            <a (click)="setPageBottom(pager.totalPages)" class="page-link">Last</a>
-        </li>
-    </ul>
-    <div class="main-section">
-        <div class="w-container">
-            <div class="section-heading">
-                <div class="full-divide" *ngIf="!isMeme"></div>
-                <div class="author-wrapper">
-                    <a routerLink="/author/{{ viewStory.author.id }}" routerLinkActive="active" data-w-expand="authors"
-                        class="author-link w-inline-block">
-                        <img data-w-expand="authors" src="{{ viewStory.author.image }}" alt="" class="author-photo" />
-                    </a>
-                    <a routerLink="/author/{{ viewStory.author.id }}" routerLinkActive="active" data-w-expand="authors"
-                        class="author-name">{{ viewStory.author.name }}</a>
-                    <div class="smallest-divider"></div>
-                    <div data-w-expand="authors" class="author-bio w-richtext">
-                        <p>{{ viewStory.author.description }}</p>
+    <div *ngIf="!isFullStoryPage">
+        <div class="main-section">
+            <div class="w-container">
+                <div class="section-heading">
+                    <div class="full-divide" *ngIf="!isMeme"></div>
+                    <div class="author-wrapper">
+                        <a routerLink="/author/{{ viewStory.author.id }}" routerLinkActive="active" data-w-expand="authors" class="author-link w-inline-block">
+                            <img data-w-expand="authors" src="{{ viewStory.author.image }}" alt="" class="author-photo" />
+                        </a>
+                        <a routerLink="/author/{{ viewStory.author.id }}" routerLinkActive="active" data-w-expand="authors" class="author-name">{{ viewStory.author.name }}</a>
+                        <div class="smallest-divider"></div>
+                        <div data-w-expand="authors" class="author-bio w-richtext">
+                            <p>{{ viewStory.author.description }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <app-comment-box></app-comment-box>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Display Ads 2 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029"
-            data-ad-slot="6995629868" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Display ad 1 -->
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029"
-            data-ad-slot="7651701021" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-        <div class="" *ngIf="showRelatedStories">
-            <div class="w-container">
-                <div class="section-heading">
-                    <h2>Related Posts</h2>
-                    <div class="med-divider"></div>
-                </div>
-                <div class="w-dyn-list">
-                    <div role="list" class="w-clearfix w-dyn-items w-row">
-                        <div *ngFor="let tile of viewStory.relatedStories" role="listitem"
-                            class="blog-thumbnail w-dyn-item w-col w-col-4">
-                            <a routerLink="/{{ tile.category.name }}/redirect/{{ tile.author.name}}/{{ tile.story.id }}/{{tile.story.name}}/1"
-                                routerLinkActive="active" data-w-id="38873f1b-fb6c-7ab7-bfe8-8929fbeb9146"
-                                aria-current="page" class="thumbnail-wrapper w-inline-block w--current">
-                                <div class="image-wrapper">
-                                    <div style="background-image:url(&quot;{{
+            <app-comment-box></app-comment-box>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Display Ads 2 -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="6995629868" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Display ad 1 -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="7651701021" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <div class="" *ngIf="showRelatedStories">
+                <div class="w-container">
+                    <div class="section-heading">
+                        <h2>Related Posts</h2>
+                        <div class="med-divider"></div>
+                    </div>
+                    <div class="w-dyn-list">
+                        <div role="list" class="w-clearfix w-dyn-items w-row">
+                            <div *ngFor="let tile of viewStory.relatedStories" role="listitem" class="blog-thumbnail w-dyn-item w-col w-col-4">
+                                <a routerLink="/{{ tile.category.name }}/redirect/{{ tile.author.name}}/{{ tile.story.id }}/{{tile.story.name}}/1" routerLinkActive="active" data-w-id="38873f1b-fb6c-7ab7-bfe8-8929fbeb9146" aria-current="page" class="thumbnail-wrapper w-inline-block w--current">
+                                    <div class="image-wrapper">
+                                        <div style="background-image:url(&quot;{{
                       tile.story.image
                     }}&quot;);-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                                        class="thumbnail-image"></div>
-                                    <div style="background-color:{{ tile.category.color }}" class="category-tag">
-                                        {{ tile.category.name }}
+                                            class="thumbnail-image"></div>
+                                        <div style="background-color:{{ tile.category.color }}" class="category-tag">
+                                            {{ tile.category.name }}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="thumbnail-text">
-                                    <div class="blog-title">{{ tile.story.name }}</div>
-                                    <div class="preview-text">{{ tile.story.description }}</div>
-                                </div>
-                                <div class="thumb-details w-clearfix">
-                                    <img src="{{ tile.author.image }}" alt="" class="author-img" />
-                                    <div class="author-title">{{ tile.author.name }}</div>
-                                    <div class="thumbnail-date">
-                                        {{ tile.story.lastModified }}
+                                    <div class="thumbnail-text">
+                                        <div class="blog-title">{{ tile.story.name }}</div>
+                                        <div class="preview-text">{{ tile.story.description }}</div>
                                     </div>
-                                </div>
-                            </a>
+                                    <div class="thumb-details w-clearfix">
+                                        <img src="{{ tile.author.image }}" alt="" class="author-img" />
+                                        <div class="author-title">{{ tile.author.name }}</div>
+                                        <div class="thumbnail-date">
+                                            {{ tile.story.lastModified }}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,15 +183,13 @@
 </div>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Display Ads 2 -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="6995629868"
-    data-ad-format="auto" data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="6995629868" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Display ad 1 -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="7651701021"
-    data-ad-format="auto" data-full-width-responsive="true"></ins>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1964144255874029" data-ad-slot="7651701021" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>

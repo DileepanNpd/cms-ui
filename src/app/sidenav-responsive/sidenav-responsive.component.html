@@ -1,93 +1,92 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
+    <mat-toolbar color="primary" class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <div *ngIf="!mobileQuery.matches">
-      <img class="logo-main" src="/assets/logo5.jpg">
-    </div>
-    <div *ngIf="mobileQuery.matches">
-      <img class="logo-main-mobile" src="/assets/logo5.jpg">
-    </div>
-    <span class="example-spacer"></span>
-    <div class="dropdown">
-      <button *ngIf="login && !mobileQuery.matches" mat-raised-button color="accent" type="button"
-        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div *ngIf="!mobileQuery.matches">
+            <img class="logo-main" src="/assets/logo5.jpg">
+        </div>
+        <div *ngIf="mobileQuery.matches">
+            <img class="logo-main-mobile" src="/assets/logo5.jpg">
+        </div>
+        <span class="example-spacer"></span>
+        <div class="dropdown">
+            <button *ngIf="login && !mobileQuery.matches" mat-raised-button color="accent" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         {{ sessionUser.author.name }}
       </button>
 
-      <div *ngIf="login && mobileQuery.matches">
-        <span class="example-spacer"></span>
-        <button (click)="signOut()" mat-icon-button aria-label="Sign out" class="pl-2 pr-2">
+            <div *ngIf="login && mobileQuery.matches">
+                <span class="example-spacer"></span>
+                <button (click)="signOut()" mat-icon-button aria-label="Sign out" class="pl-2 pr-2">
           <i class="fa fa-sign-out fa-3x" aria-hidden="true"></i>
         </button>
-      </div>
+            </div>
 
-      <div *ngIf="login" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <button *ngIf="login" (click)="signOut()" class="btn btn-primary dropdown-item">
+            <div *ngIf="login" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button *ngIf="login" (click)="signOut()" class="btn btn-primary dropdown-item">
           Sign out
         </button>
-      </div>
-    </div>
-    <button mat-raised-button color="accent" *ngIf="!login" (click)="signInWithGoogle()" class="pl-2 pr-2">
+            </div>
+        </div>
+        <button mat-raised-button color="accent" *ngIf="!login" (click)="signInWithGoogle()" class="pl-2 pr-2">
       Login
     </button>
-  </mat-toolbar>
+    </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
-      fixedTopGap="56" [(opened)]="opened">
-      <mat-nav-list>
-        <div *ngIf="mobileQuery.matches">
-          <br>
-        </div>
-        <a *ngIf="admin" mat-list-item routerLink="/admin-portal" routerLinkActive="active"
-          (click)="sideNavResponsive()">
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" [(opened)]="opened">
+            <mat-nav-list>
+                <div *ngIf="mobileQuery.matches">
+                    <br>
+                </div>
+                <a *ngIf="admin" mat-list-item routerLink="/admin-portal" routerLinkActive="active" (click)="sideNavResponsive()">
           &nbsp;&nbsp;
           <mat-icon>power_settings_new</mat-icon>&nbsp;&nbsp;Admin&nbsp;&nbsp;
         </a>
-        <a *ngIf="login" mat-list-item routerLink="/account" routerLinkActive="active" (click)="sideNavResponsive()">
-          <!-- <img src="{{author.image}}"> &nbsp;&nbsp;My Account&nbsp;&nbsp; -->
-          &nbsp;&nbsp;
-          <mat-icon>account_balance</mat-icon>&nbsp;&nbsp;My Account&nbsp;&nbsp;
-        </a>
-        <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sideNavResponsive()">
+                <a *ngIf="login" mat-list-item routerLink="/account" routerLinkActive="active" (click)="sideNavResponsive()">
+                    <!-- <img src="{{author.image}}"> &nbsp;&nbsp;My Account&nbsp;&nbsp; -->
+                    &nbsp;&nbsp;
+                    <mat-icon>account_balance</mat-icon>&nbsp;&nbsp;My Account&nbsp;&nbsp;
+                </a>
+                <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="sideNavResponsive()">
           &nbsp;&nbsp;<mat-icon>dashboard</mat-icon>&nbsp;&nbsp;Home&nbsp;&nbsp;
         </a>
-        <a mat-list-item routerLink="/stories" routerLinkActive="active" (click)="sideNavResponsive()">
+                <a mat-list-item routerLink="/stories" routerLinkActive="active" (click)="sideNavResponsive()">
           &nbsp;&nbsp;<mat-icon>menu_book</mat-icon>&nbsp;&nbsp;All Stories&nbsp;&nbsp;
         </a>
-        <a mat-list-item routerLink="/categories" routerLinkActive="active" (click)="sideNavResponsive()">
+                <a mat-list-item routerLink="/categories" routerLinkActive="active" (click)="sideNavResponsive()">
           &nbsp;&nbsp;<mat-icon>category</mat-icon>&nbsp;&nbsp;Categories&nbsp;&nbsp;
         </a>
-        <!-- <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="sideNavResponsive()">&nbsp;&nbsp;
+                <a mat-list-item routerLink="/%20முடிக்கப்பட்ட%20கதைகள்/196/1" routerLinkActive="active" (click)="sideNavResponsive()">
+          &nbsp;&nbsp;<mat-icon>library_books</mat-icon><span>&nbsp;&nbsp;Completed Novels</span>
+        </a>
+                <!-- <a mat-list-item routerLink="/about" routerLinkActive="active" (click)="sideNavResponsive()">&nbsp;&nbsp;
           <mat-icon>location_city</mat-icon>&nbsp;&nbsp;About&nbsp;&nbsp;
         </a> -->
-        <mat-list-item class="pt-2">
-          &nbsp;&nbsp;<a
-            href="https://www.facebook.com/%E0%AE%89%E0%AE%A4%E0%AF%8D%E0%AE%B0%E0%AE%BE-%E0%AE%9A%E0%AE%BF%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AE%BE%E0%AE%B0%E0%AF%8D%E0%AE%A4%E0%AF%8D-%E0%AE%A8%E0%AE%BE%E0%AE%B5%E0%AE%B2%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D-106882697738686/"
-            target="_blank"><img src="/assets/fb.jpg"></a>&nbsp;&nbsp;
-          &nbsp;&nbsp;<a href="https://www.amazon.com/kindle-dbs/author?ref=dbs_G_A_C&asin=B0861BZ83T"
-            target="_blank"><img src="/assets/kindle.jpg"></a>&nbsp;&nbsp;
-        </mat-list-item>
-        <!-- <a mat-list-item routerLink="/contact" routerLinkActive="active" (click)="sideNavResponsive()">
+                <mat-list-item class="pt-2">
+                    &nbsp;&nbsp;
+                    <a href="https://www.facebook.com/%E0%AE%89%E0%AE%A4%E0%AF%8D%E0%AE%B0%E0%AE%BE-%E0%AE%9A%E0%AE%BF%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AE%BE%E0%AE%B0%E0%AF%8D%E0%AE%A4%E0%AF%8D-%E0%AE%A8%E0%AE%BE%E0%AE%B5%E0%AE%B2%E0%AF%8D%E0%AE%95%E0%AE%B3%E0%AF%8D-106882697738686/"
+                        target="_blank"><img src="/assets/fb.jpg"></a>&nbsp;&nbsp; &nbsp;&nbsp;
+                    <a href="https://www.amazon.com/kindle-dbs/author?ref=dbs_G_A_C&asin=B0861BZ83T" target="_blank"><img src="/assets/kindle.jpg"></a>&nbsp;&nbsp;
+                </mat-list-item>
+                <!-- <a mat-list-item routerLink="/contact" routerLinkActive="active" (click)="sideNavResponsive()">
           &nbsp;&nbsp;<mat-icon>contact_page</mat-icon>&nbsp;&nbsp;Contact&nbsp;&nbsp;
         </a> -->
-        <!-- <a *ngIf="!login" mat-list-item routerLink="/login" routerLinkActive="active">
+                <!-- <a *ngIf="!login" mat-list-item routerLink="/login" routerLinkActive="active">
                     &nbsp;&nbsp;<mat-icon>login</mat-icon>&nbsp;&nbsp;Login&nbsp;&nbsp;                  
                 </a> -->
-      </mat-nav-list>
-    </mat-sidenav>
+            </mat-nav-list>
+        </mat-sidenav>
 
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>
 
 
 <div class="container-dileepan" *ngIf="!show">
-  <div class="vertical-center">
-    <mat-spinner></mat-spinner>
-  </div>
+    <div class="vertical-center">
+        <mat-spinner></mat-spinner>
+    </div>
 </div>

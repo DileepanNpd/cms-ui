@@ -37,6 +37,7 @@ export class StoryComponent implements OnInit, OnChanges {
   sanitizer!: DomSanitizer;
   websiteUrl: string = '';
   isMeme: boolean = false;
+  isFullStoryPage: boolean = false;
 
   constructor(
     private httpClient: HttpClient,
@@ -81,6 +82,9 @@ export class StoryComponent implements OnInit, OnChanges {
           this.viewStory = data;
           if (this.viewStory.category.id == 17) {
             this.isMeme = true;
+          }
+           if (this.viewStory.category.id == 19) {
+            this.isFullStoryPage = true;
           }
           this.storyDescription = this.viewStory.story.stories[0];
           this.items = this.viewStory.story.episode;
