@@ -51,6 +51,7 @@ import { ShareService } from './services/share.service';
 import { LinkService } from './services/link.service';
 import { MemeCompComponent } from './meme-comp/meme-comp.component';
 import { DummyPageComponent } from './dummy-page/dummy-page.component';
+import { PollComponent } from './poll/poll.component';
 
 
 @NgModule({
@@ -82,7 +83,8 @@ import { DummyPageComponent } from './dummy-page/dummy-page.component';
     RatingsComponent,
     RedirectAlwaysComponent,
     MemeCompComponent,
-    DummyPageComponent
+    DummyPageComponent,
+    PollComponent
   ],
   imports: [
     FlexLayoutModule,

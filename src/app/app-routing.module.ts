@@ -14,6 +14,7 @@ import { EditStoryComponent } from './edit-story/edit-story.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { MemeCompComponent } from './meme-comp/meme-comp.component';
+import { PollComponent } from './poll/poll.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
 import { RatingsComponent } from './ratings/ratings.component';
 import { RedirectAlwaysComponent } from './redirect-always/redirect-always.component';
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'கதை/கதை/edit-story/:storyId', component: EditStoryComponent, canActivate: [AuthGuard] },
   { path: 'கதை/கதை/add-episode/:storyId', component: AddEpisodeComponent, canActivate: [AuthGuard] },
   { path: 'author/:authorId', component: AuthorComponent },
+  { path: 'poll', component: PollComponent },
   { path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
