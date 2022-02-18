@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonResponse } from '../model/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-portal',
@@ -14,6 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./admin-portal.component.css']
 })
 export class AdminPortalComponent implements OnInit {
+  loginForm;
   toppings = new FormControl();
   toppingList: number[] = [];
   login: boolean = false;
@@ -32,7 +34,7 @@ export class AdminPortalComponent implements OnInit {
   }
   httpOptions = Constants.httpOptions;
 
-  constructor(private httpClient: HttpClient, private _loginService: LoginService, private router: Router, private _snackBar: MatSnackBar) {
+  constructor(private httpClient: HttpClient, private _loginService: LoginService, private router: Router, private _snackBar: MatSnackBar,private fb: FormBuilder) {
     this._loginService.cookieValue.subscribe((cookieValue) => {
       if (cookieValue != '') {
         this.login = true;
@@ -54,6 +56,9 @@ export class AdminPortalComponent implements OnInit {
       ).subscribe((data) => {
         this.allStories = data.stories;
         this.splitStories(this.allStories);
+      });
+      this.loginForm = this.fb.group({
+        story: ['', Validators.required]
       });
   }
 
@@ -169,5 +174,30 @@ export class AdminPortalComponent implements OnInit {
         (err) => {
           console.log(err);
         });
+  }
+
+  removeStoryLink() {
+    if (this.loginForm.value.story != '' ) {
+      let request = {
+        id: this.sessionUser.id,
+        story_id: this.loginForm.value.story
+      };
+      console.log(request);
+      this.httpClient
+      .post<CommonResponse>(environment.service_url + 'remove_story_link', request, this.httpOptions)
+      .subscribe(
+        (data) => {
+          this._snackBar.open(data.response.message, '', {
+            duration: 2000,
+          });
+        },
+        (err) => {
+          console.log(err);
+        });
+    } else {
+      alert('Enter Story id to proceed further');
+    }
+   
+    
   }
 }

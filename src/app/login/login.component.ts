@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SocialAuthService } from 'angularx-social-login';
-import { GoogleLoginProvider } from 'angularx-social-login';
+import { GoogleLoginProvider,FacebookLoginProvider } from 'angularx-social-login';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -66,6 +66,15 @@ export class LoginComponent {
     });
   }
 
+  signInWithFacebook(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then((response) => {
+      console.log(response);
+      this.refreshTokenFacebook();
+    }).catch(e => {
+      alert('Please enable cookies & refresh the page, you will be signed in with google');
+    });
+  }
+
   signOut(): void {
     this.cookieService.delete('novel-session');
     this.authService.signOut(true);
@@ -86,6 +95,10 @@ export class LoginComponent {
 
   refreshToken(): void {
     this.authService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  refreshTokenFacebook(): void {
+    this.authService.refreshAuthToken(FacebookLoginProvider.PROVIDER_ID);
   }
 
   loginClick() {

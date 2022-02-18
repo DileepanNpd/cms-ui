@@ -25,6 +25,7 @@ import {
   SocialLoginModule,
   SocialAuthServiceConfig,
   GoogleLoginProvider,
+  FacebookLoginProvider
 } from 'angularx-social-login';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RichTextEditorAllModule } from '@syncfusion/ej2-angular-richtexteditor';
@@ -125,6 +126,10 @@ import { PollComponent } from './poll/poll.component';
               '78898657335-sbi9oub9h2adh2u41btds1hpao27sob0.apps.googleusercontent.com'
             ),
           },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('1086928568827961')
+          }
         ],
       } as SocialAuthServiceConfig,
     },

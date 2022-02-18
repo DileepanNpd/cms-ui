@@ -87,7 +87,7 @@
             </div>
         </div>
     </div>
-    <div class="container selectable no-print" [innerHTML]="sanitizer.bypassSecurityTrustHtml(storyDescription)" *ngIf="!isMeme">
+    <div class="w-container selectable no-print pl-2 pr-2" [innerHTML]="sanitizer.bypassSecurityTrustHtml(storyDescription)" *ngIf="!isMeme">
     </div>
     <div *ngIf="!isFullStoryPage">
         <div class="full-divide" *ngIf="!isMeme"></div>

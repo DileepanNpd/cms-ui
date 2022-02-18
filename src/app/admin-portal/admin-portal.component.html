@@ -1,6 +1,24 @@
 <div class="container-fluid" *ngIf="show.page">
     <br>
     <mat-tab-group [disableRipple]=true>
+        <mat-tab label="Remove Story Link">
+            <div class="container">
+                <br />
+                <br />
+                <br />
+                <div class="row pt-25 pb-25 pl-25 pr-25">
+                    <form [formGroup]="loginForm" class="example-form-login">
+                        <mat-card-content>
+                            <mat-form-field style="align-items: center;">
+                                <input matInput type="text" placeholder="Story Id" formControlName="story">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <button class=" btn btn-primary btn-block" (click)="removeStoryLink()"
+                            [disabled]='!loginForm.valid'>Remove Story link</button>
+                    </form>
+                </div>
+            </div>
+        </mat-tab>
         <mat-tab label="All Stories">
             <div class="container">
                 <table class="table table-hover">
@@ -48,8 +66,12 @@
                     </thead>
                     <tbody>
                         <tr class="d-flex" *ngFor="let publishedstory of publishedStories">
-                            <th scope="row" class="col-1"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a></th>
-                            <td class="col-4"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a></td>
+                            <th scope="row" class="col-1"><a
+                                    routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a>
+                            </th>
+                            <td class="col-4"><a
+                                    routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a>
+                            </td>
                             <td class="col-2">{{publishedstory.author.name}}</td>
                             <td class="col-3">
                                 <mat-select [(value)]="publishedstory.story.selected">
@@ -82,8 +104,11 @@
                     </thead>
                     <tbody>
                         <tr class="d-flex" *ngFor="let pendingreview of pendingReviewStories">
-                            <th scope="row" class="col-1" ><a routerLink="/story/{{ pendingreview.story.id }}">{{pendingreview.story.id}}</a></th>
-                            <td class="col-4"><a routerLink="/story/{{ pendingreview.story.id }}">{{pendingreview.story.name}}</a></td>
+                            <th scope="row" class="col-1"><a
+                                    routerLink="/story/{{ pendingreview.story.id }}">{{pendingreview.story.id}}</a></th>
+                            <td class="col-4"><a
+                                    routerLink="/story/{{ pendingreview.story.id }}">{{pendingreview.story.name}}</a>
+                            </td>
                             <td class="col-2">{{pendingreview.author.name}}</td>
                             <td class="col-3">
                                 <mat-select [(value)]="pendingreview.story.selected">
@@ -115,8 +140,11 @@
                     </thead>
                     <tbody>
                         <tr class="d-flex" *ngFor="let rejectedstory of rejectedApprovalStories">
-                            <th class="col-1" scope="row" ><a routerLink="/story/{{ rejectedstory.story.id }}">{{rejectedstory.story.id}}</a></th>
-                            <td class="col-4"><a routerLink="/story/{{ rejectedstory.story.id }}">{{rejectedstory.story.name}}</a></td>
+                            <th class="col-1" scope="row"><a
+                                    routerLink="/story/{{ rejectedstory.story.id }}">{{rejectedstory.story.id}}</a></th>
+                            <td class="col-4"><a
+                                    routerLink="/story/{{ rejectedstory.story.id }}">{{rejectedstory.story.name}}</a>
+                            </td>
                             <td class="col-2">{{rejectedstory.author.name}}</td>
                             <td class="col-3">
                                 <mat-select [(value)]="rejectedstory.story.selected">
@@ -148,8 +176,12 @@
                     </thead>
                     <tbody>
                         <tr class="d-flex" *ngFor="let publishedstory of publishedStories">
-                            <th class="col-1" scope="row"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a></th>
-                            <td class="col-4"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a></td>
+                            <th class="col-1" scope="row"><a
+                                    routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a>
+                            </th>
+                            <td class="col-4"><a
+                                    routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a>
+                            </td>
                             <td class="col-2">{{publishedstory.author.name}}</td>
                             <td class="col-3">
                                 <mat-label>Story id's</mat-label>
@@ -181,8 +213,12 @@
                     </thead>
                     <tbody>
                         <tr class="d-flex" *ngFor="let publishedstory of publishedStories">
-                            <th class="col-1" scope="row"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a></th>
-                            <td class="col-4"><a routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a></td>
+                            <th class="col-1" scope="row"><a
+                                    routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.id}}</a>
+                            </th>
+                            <td class="col-4"><a
+                                    routerLink="/story/{{ publishedstory.story.id }}">{{publishedstory.story.name}}</a>
+                            </td>
                             <td class="col-2">{{publishedstory.author.name}}</td>
                             <td class="col-3">
                                 <mat-select [(value)]="publishedstory.story.featuredSelect">
@@ -213,8 +249,11 @@
                     </thead>
                     <tbody>
                         <tr class="d-flex" *ngFor="let carouselStory of carouselStories">
-                            <th class="col-1" scope="row"><a routerLink="/story/{{ carouselStory.story.id }}">{{carouselStory.story.id}}</a></th>
-                            <td class="col-4"><a routerLink="/story/{{ carouselStory.story.id }}">{{carouselStory.story.name}}</a></td>
+                            <th class="col-1" scope="row"><a
+                                    routerLink="/story/{{ carouselStory.story.id }}">{{carouselStory.story.id}}</a></th>
+                            <td class="col-4"><a
+                                    routerLink="/story/{{ carouselStory.story.id }}">{{carouselStory.story.name}}</a>
+                            </td>
                             <td class="col-2">{{carouselStory.author.name}}</td>
                             <td class="col-3">
                                 <mat-select [(value)]="carouselStory.story.carouselSelect">

@@ -22,13 +22,25 @@
       <mat-divider></mat-divider>
       <br>
       <mat-card-actions>
-        <span class="text-center pt-5 pb-5">Login with Gmail</span>
+        <!--span class="text-center pt-5 pb-5">Login with Gmail</span>
         <button *ngIf="!login" (click)="signInWithGoogle()" class="btn btn-danger btn-block">
           Google <i class="fa fa-google-plus"></i>
         </button>
         <br>
-        Not an user? <button class="btn" (click)="registerHere()"> <u>Register here</u></button>
-      </mat-card-actions>
+        <span class="text-center pt-5 pb-5">Login with Facebook</span>
+        <button *ngIf="!login" (click)="signInWithFacebook()" class="btn btn-primary btn-block">
+          Facebook <i class="fa fa-facebook"></i>
+        </button-->
+        <!-- <br> -->
+        <button *ngIf="!login" (click)="signInWithFacebook()" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+        </button>
+        <button *ngIf="!login" (click)="signInWithGoogle()" class="google btn"><i class="fa fa-google fa-fw">
+          </i> Login with Google+
+        </button>
+        <br>
+        <button class="btn twitter" (click)="registerHere()">Register here</button>
+           </mat-card-actions>
     </mat-card>
   </div>
 </div>
@@ -42,7 +54,7 @@
       <div class="card-block">
         <h4 class="card-title">{{ sessionUser.name }}</h4>
         <p class="card-text">{{ sessionUser.email }}</p>
-        <p class="card-text">Logged in with Google</p>
+        <p class="card-text">Logged in with Social account</p>
       </div>
       <div class="card-block">
         <button class="btn btn-danger" (click)="signOut()">Sign out</button>
