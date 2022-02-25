@@ -7,16 +7,20 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  data_ad_client: string = environment.data_ad_client;
-  data_ad_slot1: string = environment.data_ad_slot1;
-  data_ad_slot2: string = environment.data_ad_slot2;
-  constructor() { }
+  data_ad_client: string = '';
+  data_ad_slot1: string = '';
+  data_ad_slot2: string = '';
+  constructor() {
+    this.data_ad_client = environment.data_ad_client;
+    this.data_ad_slot1 = environment.data_ad_slot1;
+    this.data_ad_slot2 = environment.data_ad_slot2;
+  }
   ngOnInit(): void { }
   ngAfterViewInit() {
     setTimeout(() => {
       try {
         (window['adsbygoogle'] = window['adsbygoogle'] || []).push({});
       } catch (e) { }
-    }, 500);
+    }, 2000);
   }
 }
