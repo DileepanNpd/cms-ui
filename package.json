@@ -13,24 +13,24 @@
     "postinstall": "ngcc",
     "dev:ssr": "ng run npd-softwares:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build --prod && ng run npd-softwares:server:production",
+    "build:ssr": "ng build --configuration production && ng run npd-softwares:server:production",
     "prerender": "ng run npd-softwares:prerender",
-    "prod-opt": "ng build --prod --aot --build-optimizer"
+    "prod-opt": "ng build --configuration production --aot --build-optimizer"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~11.0.1",
+    "@angular/animations": "~12.2.16",
     "@angular/cdk": "^11.0.3",
-    "@angular/common": "~11.0.1",
-    "@angular/compiler": "~11.0.1",
-    "@angular/core": "~11.0.1",
+    "@angular/common": "~12.2.16",
+    "@angular/compiler": "~12.2.16",
+    "@angular/core": "~12.2.16",
     "@angular/flex-layout": "^12.0.0-beta.34",
-    "@angular/forms": "~11.0.1",
+    "@angular/forms": "~12.2.16",
     "@angular/material": "^11.0.3",
-    "@angular/platform-browser": "~11.0.1",
-    "@angular/platform-browser-dynamic": "~11.0.1",
-    "@angular/platform-server": "~11.0.1",
-    "@angular/router": "~11.0.1",
+    "@angular/platform-browser": "~12.2.16",
+    "@angular/platform-browser-dynamic": "~12.2.16",
+    "@angular/platform-server": "~12.2.16",
+    "@angular/router": "~12.2.16",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "@nguniversal/express-engine": "^11.0.0",
     "@syncfusion/ej2-angular-richtexteditor": "^18.4.30",
@@ -44,13 +44,13 @@
     "ngx-cookie-service": "^11.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.3"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.2.5",
-    "@angular/cli": "~11.0.2",
-    "@angular/compiler-cli": "~11.0.1",
-    "@angular/localize": "^11.0.9",
+    "@angular/cli": "~12.2.16",
+    "@angular/compiler-cli": "~12.2.16",
+    "@angular/localize": "^12.2.16",
     "@nguniversal/builders": "^11.0.0",
     "@types/express": "^4.17.8",
     "@types/jasmine": "~3.6.0",
@@ -67,6 +67,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.3"
+    "typescript": "~4.3.5"
   }
 }
