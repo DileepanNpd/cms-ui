@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  service_url: 'https://udhratamilnovels.com/service/api/',
+  service_url: 'https://127.0.0.1:8000/api/',
   domain_url: 'http://localhost:4200/#/',
 };
 

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "udhra-tamil-novels": {
+    "npd-softwares": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -65,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "udhra-tamil-novels:build"
+            "browserTarget": "npd-softwares:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "udhra-tamil-novels:build:production"
+              "browserTarget": "npd-softwares:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "udhra-tamil-novels:build"
+            "browserTarget": "npd-softwares:build"
           }
         },
         "test": {
@@ -113,11 +113,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "udhra-tamil-novels:serve"
+            "devServerTarget": "npd-softwares:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "udhra-tamil-novels:serve:production"
+              "devServerTarget": "npd-softwares:serve:production"
             }
           }
         },
@@ -145,21 +145,21 @@
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "udhra-tamil-novels:build",
-            "serverTarget": "udhra-tamil-novels:server"
+            "browserTarget": "npd-softwares:build",
+            "serverTarget": "npd-softwares:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "udhra-tamil-novels:build:production",
-              "serverTarget": "udhra-tamil-novels:server:production"
+              "browserTarget": "npd-softwares:build:production",
+              "serverTarget": "npd-softwares:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "udhra-tamil-novels:build:production",
-            "serverTarget": "udhra-tamil-novels:server:production",
+            "browserTarget": "npd-softwares:build:production",
+            "serverTarget": "npd-softwares:server:production",
             "routes": [
               "/"
             ]
@@ -171,7 +171,7 @@
       }
     }
   },
-  "defaultProject": "udhra-tamil-novels",
+  "defaultProject": "npd-softwares",
   "cli": {
     "analytics": false
   }

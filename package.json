@@ -1,5 +1,5 @@
 {
-  "name": "udhra-tamil-novels",
+  "name": "npd-softwares",
   "version": "3.0.1",
   "description": "Example project from an angular.io guide.",
   "license": "MIT",
@@ -11,10 +11,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ngcc",
-    "dev:ssr": "ng run udhra-tamil-novels:serve-ssr",
+    "dev:ssr": "ng run npd-softwares:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build --prod && ng run udhra-tamil-novels:server:production",
-    "prerender": "ng run udhra-tamil-novels:prerender",
+    "build:ssr": "ng build --prod && ng run npd-softwares:server:production",
+    "prerender": "ng run npd-softwares:prerender",
     "prod-opt": "ng build --prod --aot --build-optimizer"
   },
   "private": true,
@@ -47,7 +47,7 @@
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1100.2",
+    "@angular-devkit/build-angular": "^13.2.5",
     "@angular/cli": "~11.0.2",
     "@angular/compiler-cli": "~11.0.1",
     "@angular/localize": "^11.0.9",
@@ -59,7 +59,7 @@
     "jasmine-core": "~3.6.0",
     "jasmine-marbles": "~0.6.0",
     "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~5.1.0",
+    "karma": "^6.3.16",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
