@@ -9,7 +9,6 @@ import { CategoryComponent } from './category/category.component';
 import { ContactComponent } from './contact/contact.component';
 import { CreateStoryComponent } from './create-story/create-story.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DummyPageComponent } from './dummy-page/dummy-page.component';
 import { EditStoryComponent } from './edit-story/edit-story.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './login/login.component';
@@ -42,7 +41,6 @@ const routes: Routes = [
   { path: ':category/கதை/:author/:storyId/:storyName', component: RedirectAlwaysComponent },
   { path: ':category/கதை/:author/:storyId/:storyName/:episode', component: RedirectAlwaysComponent },
   { path: 'home', component: DashboardComponent },
-  { path: 'tamil-novels-latest-story-heart-touch', component: DummyPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'account', component: ProfilePageComponent, canActivate: [AuthGuard] },
   { path: 'create-story', component: CreateStoryComponent, canActivate: [AuthGuard] },

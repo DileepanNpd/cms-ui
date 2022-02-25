@@ -38,6 +38,9 @@ export class StoryComponent implements OnInit, OnChanges {
   websiteUrl: string = '';
   isMeme: boolean = false;
   isFullStoryPage: boolean = false;
+  data_ad_client: string = environment.data_ad_client;
+  data_ad_slot1: string = environment.data_ad_slot1;
+  data_ad_slot2: string = environment.data_ad_slot2;
 
   constructor(
     private httpClient: HttpClient,
