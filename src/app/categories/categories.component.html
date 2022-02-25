@@ -6,7 +6,14 @@
   <div id="posts" class="main-section">
     <div class="w-container">
       <div class="w-dyn-list">
-        <ng-adsense  [adClient]="'{{data_ad_client}}'" [adSlot]="'{{data_ad_slot1}}'"></ng-adsense>
+        <div class="row">
+          <div class="col-sm-12 col-md-6 p3">
+            <ng-adsense [adClient]="'ca-pub-1964144255874029'" [adSlot]="'7651701021'"></ng-adsense>
+          </div>
+          <div class="col-sm-12 col-md-6 p3">
+            <ng-adsense [adClient]="'ca-pub-1964144255874029'" [adSlot]="'6995629868'"></ng-adsense>
+          </div>
+        </div>
         <div role="list" class="w-dyn-items w-row">
           <div *ngFor="let category of categories" role="listitem" class="w-dyn-item w-col w-col-4">
             <a routerLink="{{category.path}}" routerLinkActive="active" class="category-block w-inline-block">
