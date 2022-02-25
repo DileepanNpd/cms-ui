@@ -33,7 +33,7 @@
     "@angular/router": "~13.2.4",
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "@nguniversal/express-engine": "^12.1.3",
-    "@syncfusion/ej2-angular-richtexteditor": "^18.4.30",
+    "@syncfusion/ej2-angular-richtexteditor": "^19.4.53",
     "angular-in-memory-web-api": "~0.11.0",
     "angularx-social-login": "^3.5.4",
     "bootstrap": "^5.0.0-beta1",
