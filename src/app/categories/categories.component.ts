@@ -14,6 +14,8 @@ export class CategoriesComponent implements OnInit {
   show: boolean = false;
   categories: Category[] = [];
   httpOptions = Constants.httpOptions;
+  data_ad_client: string = environment.data_ad_client;
+  data_ad_slot1: string = environment.data_ad_slot1;
   constructor(private httpClient: HttpClient,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

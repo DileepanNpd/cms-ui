@@ -51,8 +51,8 @@ import { DemoMaterialModule } from './material.module';
 import { ShareService } from './services/share.service';
 import { LinkService } from './services/link.service';
 import { MemeCompComponent } from './meme-comp/meme-comp.component';
-import { DummyPageComponent } from './dummy-page/dummy-page.component';
 import { PollComponent } from './poll/poll.component';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -84,7 +84,6 @@ import { PollComponent } from './poll/poll.component';
     RatingsComponent,
     RedirectAlwaysComponent,
     MemeCompComponent,
-    DummyPageComponent,
     PollComponent
   ],
   imports: [
@@ -93,8 +92,8 @@ import { PollComponent } from './poll/poll.component';
       appId: 'ng-universal-demystified'
     }),
     AdsenseModule.forRoot({
-      adClient: 'ca-pub-1964144255874029',
-      adSlot: 7259870550,
+      adClient: environment.data_ad_client,
+      adSlot: environment.data_ad_slot1,
     }),
     BrowserAnimationsModule,
     AppRoutingModule,
