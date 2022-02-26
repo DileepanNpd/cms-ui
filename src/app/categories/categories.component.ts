@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Category } from '../model/category';
-import { Categories, Constants } from '../model/common';
+import { Categories, Constants, hcCategories } from '../model/common';
 
 @Component({
   selector: 'app-categories',
@@ -25,9 +25,13 @@ export class CategoriesComponent implements OnInit {
         categoryId = 0;
       }
       this.httpClient
-        .get<Categories>(environment.service_url + 'categories/' + categoryId , this.httpOptions)
+        .get<hcCategories>("assets/api/categories.json" , this.httpOptions)
         .subscribe((data) => {
-          this.categories = data.categories;
+          if(categoryId == 0) {
+            this.categories = data[0].categories;
+          } else {
+            this.categories = data[2].categories;  
+          }
           this.show = true;
         });
     });

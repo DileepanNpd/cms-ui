@@ -23,6 +23,11 @@ export interface Categories {
   categories: Category[];
 }
 
+export interface hcCategories {
+  0: Categories;
+  2: Categories;
+}
+
 export interface ViewStory {
   story: Story;
   author: Author;

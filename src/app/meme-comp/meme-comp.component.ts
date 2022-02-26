@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ToolbarService, LinkService, ImageService, HtmlEditorService, TableService, } from '@syncfusion/ej2-angular-richtexteditor';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../model/category';
-import { Categories, CommonResponse, Constants } from '../model/common';
+import { CommonResponse, Constants } from '../model/common';
 import { environment } from 'src/environments/environment';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';

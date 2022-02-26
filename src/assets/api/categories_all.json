@@ -1,0 +1,132 @@
+{
+  "categories": [
+    {
+      "id": 4,
+      "name": "\u0ba8\u0bbe\u0bb5\u0bb2\u0bcd\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category4.jpg",
+      "color": "#cc0000",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 8,
+      "name": "\u0b9a\u0bae\u0bc8\u0baf\u0bb2\u0bcd \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category13.jpg",
+      "color": "#0099cc",
+      "parent": 2,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 6,
+      "name": "\u0b9a\u0bbf\u0bb1\u0bc1 \u0b95\u0ba4\u0bc8\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category6.jpg",
+      "color": "#ff0066",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 9,
+      "name": "\u0b85\u0bb4\u0b95\u0bc1 \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category8.jpg",
+      "color": "#ff0066",
+      "parent": 2,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 5,
+      "name": "\u0b95\u0bb5\u0bbf\u0ba4\u0bc8\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category5.jpg",
+      "color": "#0099cc",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 10,
+      "name": "\u0b95\u0bc1\u0bb4\u0ba8\u0bcd\u0ba4\u0bc8 \u0bb5\u0bb3\u0bb0\u0bcd\u0baa\u0bcd\u0baa\u0bc1",
+      "image": "/assets/category/category11.jpg",
+      "color": "#ff5588",
+      "parent": 2,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 7,
+      "name": "\u0bb5\u0bbf\u0bae\u0bb0\u0bcd\u0b9a\u0ba9\u0bae\u0bcd",
+      "image": "/assets/category/category7.jpg",
+      "color": "#ff5588",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 11,
+      "name": "\u0b9a\u0bc1\u0bb1\u0bcd\u0bb1\u0bc1\u0bb2\u0bbe",
+      "image": "/assets/category/category12.jpg",
+      "color": "#0099cc",
+      "parent": 2,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 3,
+      "name": "\u0ba4\u0b95\u0bb5\u0bb2\u0bcd \u0b95\u0bb3\u0b9e\u0bcd\u0b9a\u0bbf\u0baf\u0bae\u0bcd",
+      "image": "/assets/category/category3.jpg",
+      "color": "#ffa500",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 12,
+      "name": "\u0b86\u0ba9\u0bcd\u0bae\u0bbf\u0b95\u0bae\u0bcd",
+      "image": "/assets/category/category9.jpg",
+      "color": "#ff0066",
+      "parent": 2,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 13,
+      "name": "\u0b87\u0ba4\u0bb0 \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category14.jpg",
+      "color": "#ff5588",
+      "parent": 2,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 15,
+      "name": "\u0b85\u0bb1\u0bbf\u0bb5\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category15.jpg",
+      "color": "#051588",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 16,
+      "name": "\u0bb5\u0bbe\u0ba9\u0bb5\u0bbf\u0bb2\u0bcd \u0b95\u0bb2\u0bbe\u0b9f\u0bcd\u0b9f\u0bbe",
+      "image": "/assets/category/category16.jpg",
+      "color": "#051512",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 18,
+      "name": "\u0bb5\u0bbe\u0ba9\u0bb5\u0bbf\u0bb2\u0bcd \u0baa\u0bcb\u0b9f\u0bcd\u0b9f\u0bbf - \u0bb5\u0bbf\u0bae\u0bb0\u0bcd\u0b9a\u0ba9\u0b99\u0bcd\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category17.jpg",
+      "color": "#053212",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 17,
+      "name": "\u0bb5\u0bbe\u0ba9\u0bb5\u0bbf\u0bb2\u0bcd \u0baa\u0bcb\u0b9f\u0bcd\u0b9f\u0bbf - \u0bae\u0bc0\u0bae\u0bcd\u0bb8\u0bcd \u0baa\u0b95\u0bc1\u0ba4\u0bbf\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category18.jpg",
+      "color": "#463212",
+      "parent": 0,
+      "updated_at": "December 23, 2020"
+    },
+    {
+      "id": 19,
+      "name": "\u0bae\u0bc1\u0b9f\u0bbf\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f \u0b95\u0ba4\u0bc8\u0b95\u0bb3\u0bcd",
+      "image": "/assets/category/category19.jpg",
+      "color": "#053212",
+      "parent": 0,
+      "updated_at": "November 06, 2021"
+    }
+  ]
+}

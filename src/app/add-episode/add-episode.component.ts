@@ -106,7 +106,7 @@ export class AddEpisodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.httpClient
-      .get<Categories>(environment.service_url + 'categories_all', this.httpOptions)
+      .get<Categories>('assets/api/categories_all.json', this.httpOptions)
       .subscribe((data) => {
         this.categories = data.categories;
       });
