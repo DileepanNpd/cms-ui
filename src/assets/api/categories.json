@@ -2,152 +2,152 @@
   "0": {
     "categories": [
       {
-        "id": 4,
+        "id": 1,
         "name": "நாவல்கள்",
-        "image": "/assets/category/category4.jpg",
+        "image": "/assets/category/category1.jpg",
         "color": "#cc0000",
         "parent": 0,
         "updated_at": "December 23, 2020",
-        "path": "/category/4"
+        "path": "/category/1"
       },
       {
-        "id": 6,
-        "name": "சிறு கதைகள்",
-        "image": "/assets/category/category6.jpg",
+        "id": 2,
+        "name": "கவிதைகள்",
+        "image": "/assets/category/category2.jpg",
         "color": "#ff0066",
         "parent": 0,
         "updated_at": "December 23, 2020",
-        "path": "/category/6"
-      },
-      {
-        "id": 5,
-        "name": "கவிதைகள்",
-        "image": "/assets/category/category5.jpg",
-        "color": "#0099cc",
-        "parent": 0,
-        "updated_at": "December 23, 2020",
-        "path": "/category/5"
-      },
-      {
-        "id": 7,
-        "name": "விமர்சனம்",
-        "image": "/assets/category/category7.jpg",
-        "color": "#ff5588",
-        "parent": 0,
-        "updated_at": "December 23, 2020",
-        "path": "/category/7"
+        "path": "/category/2"
       },
       {
         "id": 3,
-        "name": "தகவல் களஞ்சியம்",
+        "name": "சிறுகதைகள்",
         "image": "/assets/category/category3.jpg",
-        "color": "#ffa500",
+        "color": "#0099cc",
         "parent": 0,
         "updated_at": "December 23, 2020",
         "path": "/category/3"
       },
       {
-        "id": 2,
-        "name": "சிநேகிதியே",
-        "image": "/assets/category/category2.jpg",
+        "id": 4,
+        "name": "Feedback",
+        "image": "/assets/category/category4.jpg",
+        "color": "#0099cc",
+        "parent": 0,
+        "updated_at": "December 23, 2020",
+        "path": "/category/4"
+      },
+      {
+        "id": 5,
+        "name": "சகியே",
+        "image": "/assets/category/category5.jpg",
+        "color": "#ff5588",
+        "parent": 0,
+        "updated_at": "December 23, 2020",
+        "path": "/categories/5"
+      },
+      {
+        "id": 6,
+        "name": "அறிவுப்புகள்",
+        "image": "/assets/category/category6.jpg",
+        "color": "#ffa500",
+        "parent": 0,
+        "updated_at": "December 23, 2020",
+        "path": "/category/6"
+      },
+      {
+        "id": 7,
+        "name": "முடிக்கப்பட்ட கதைகள்",
+        "image": "/assets/category/category7.jpg",
         "color": "#0000ff",
         "parent": 0,
         "updated_at": "December 23, 2020",
-        "path": "/categories/2"
+        "path": "/category/7"
       },
-      {
-        "id": 16,
-        "name": "வானவில் கலாட்டா",
-        "image": "/assets/category/category16.jpg",
-        "color": "#051512",
-        "parent": 0,
-        "updated_at": "December 23, 2020",
-        "path": "/category/16"
-      },
-      {
-        "id": 15,
-        "name": "அறிவிப்புகள்",
-        "image": "/assets/category/category15.jpg",
-        "color": "#051588",
-        "parent": 0,
-        "updated_at": "December 23, 2020",
-        "path": "/category/15"
-      },
-      {
-        "id": 18,
-        "name": "வானவில் போட்டி - விமர்சனங்கள்",
-        "image": "/assets/category/category17.jpg",
-        "color": "#051512",
-        "parent": 0,
-        "updated_at": "December 23, 2020",
-        "path": "/category/18"
-      },
-      {
-        "id": 19,
-        "name": "முடிக்கப்பட்ட கதைகள்",
-        "image": "/assets/category/category19.jpg",
-        "color": "#051512",
-        "parent": 0,
-        "updated_at": "December 23, 2020",
-        "path": "/%20%E0%AE%AE%E0%AF%81%E0%AE%9F%E0%AE%BF%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%9F%E0%AF%8D%E0%AE%9F%20%E0%AE%95%E0%AE%A4%E0%AF%88%E0%AE%95%E0%AE%B3%E0%AF%8D/196/1"
-      }
-    ]
-  },
-  "2": {
-    "categories": [
       {
         "id": 8,
-        "name": "\u0b9a\u0bae\u0bc8\u0baf\u0bb2\u0bcd \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
-        "image": "/assets/category/category13.jpg",
-        "color": "#0099cc",
-        "parent": 2,
+        "name": "RMP Construction & Architecture",
+        "image": "/assets/category/category8.jpg",
+        "color": "#051512",
+        "parent": 0,
         "updated_at": "December 23, 2020",
         "path": "/category/8"
       },
       {
         "id": 9,
-        "name": "\u0b85\u0bb4\u0b95\u0bc1 \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
-        "image": "/assets/category/category8.jpg",
-        "color": "#ff0066",
-        "parent": 2,
+        "name": "Diya Boutique",
+        "image": "/assets/category/category9.jpg",
+        "color": "#051588",
+        "parent": 0,
         "updated_at": "December 23, 2020",
         "path": "/category/9"
       },
       {
         "id": 10,
-        "name": "\u0b95\u0bc1\u0bb4\u0ba8\u0bcd\u0ba4\u0bc8 \u0bb5\u0bb3\u0bb0\u0bcd\u0baa\u0bcd\u0baa\u0bc1",
-        "image": "/assets/category/category11.jpg",
-        "color": "#ff5588",
-        "parent": 2,
+        "name": "விமர்சனங்கள்",
+        "image": "/assets/category/category10.jpg",
+        "color": "#051512",
+        "parent": 0,
         "updated_at": "December 23, 2020",
         "path": "/category/10"
-      },
+      }
+    ]
+  },
+  "5": {
+    "categories": [
       {
         "id": 11,
-        "name": "\u0b9a\u0bc1\u0bb1\u0bcd\u0bb1\u0bc1\u0bb2\u0bbe",
-        "image": "/assets/category/category12.jpg",
+        "name": "சமையல் குறிப்புகள்",
+        "image": "/assets/category/category11.jpg",
         "color": "#0099cc",
-        "parent": 2,
+        "parent": 5,
         "updated_at": "December 23, 2020",
         "path": "/category/11"
       },
       {
         "id": 12,
-        "name": "\u0b86\u0ba9\u0bcd\u0bae\u0bbf\u0b95\u0bae\u0bcd",
-        "image": "/assets/category/category9.jpg",
+        "name": "அழகு குறிப்புகள்",
+        "image": "/assets/category/category12.jpg",
         "color": "#ff0066",
-        "parent": 2,
+        "parent": 5,
         "updated_at": "December 23, 2020",
         "path": "/category/12"
       },
       {
         "id": 13,
-        "name": "\u0b87\u0ba4\u0bb0 \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
-        "image": "/assets/category/category14.jpg",
+        "name": "குழந்தை வளர்ப்பு",
+        "image": "/assets/category/category13.jpg",
         "color": "#ff5588",
-        "parent": 0,
+        "parent": 5,
         "updated_at": "December 23, 2020",
         "path": "/category/13"
+      },
+      {
+        "id": 14,
+        "name": "சுற்றுலா",
+        "image": "/assets/category/category14.jpg",
+        "color": "#0099cc",
+        "parent": 5,
+        "updated_at": "December 23, 2020",
+        "path": "/category/14"
+      },
+      {
+        "id": 15,
+        "name": "ஆன்மீகம்",
+        "image": "/assets/category/category15.jpg",
+        "color": "#ff0066",
+        "parent": 5,
+        "updated_at": "December 23, 2020",
+        "path": "/category/15"
+      },
+      {
+        "id": 16,
+        "name": "இதர குறிப்புகள்",
+        "image": "/assets/category/category16.jpg",
+        "color": "#ff5588",
+        "parent": 5,
+        "updated_at": "December 23, 2020",
+        "path": "/category/16"
       }
     ]
   }

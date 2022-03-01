@@ -65,3 +65,9 @@ a:hover {
   text-align: center;
   width: 210px !important;
 }
+
+.logo-padding {
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

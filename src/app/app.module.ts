@@ -53,6 +53,7 @@ import { LinkService } from './services/link.service';
 import { MemeCompComponent } from './meme-comp/meme-comp.component';
 import { PollComponent } from './poll/poll.component';
 import { environment } from 'src/environments/environment';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { environment } from 'src/environments/environment';
     RatingsComponent,
     RedirectAlwaysComponent,
     MemeCompComponent,
-    PollComponent
+    PollComponent,
+    PrivacyComponent
   ],
   imports: [
     FlexLayoutModule,
@@ -122,12 +124,12 @@ import { environment } from 'src/environments/environment';
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '78898657335-sbi9oub9h2adh2u41btds1hpao27sob0.apps.googleusercontent.com'
+              '356630899520-606asdj2pjck0iiithptrnm55jvfm35j.apps.googleusercontent.com'
             ),
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('1086928568827961')
+            provider: new FacebookLoginProvider('1582463258796565')
           }
         ],
       } as SocialAuthServiceConfig,

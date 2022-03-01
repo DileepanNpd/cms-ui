@@ -123,7 +123,7 @@ export class LoginComponent {
         (data) => {
           if (data != null && data.response != null &&
             data.response.code != null && data.response.code == 500) {
-            alert("Unable to Login now, Reach us - writerudhi@gmail.com");
+            alert("Unable to Login now, Reach us - diyaelango22@gmail.com");
           } else {
             this.profile = data.profile;
             this.author.id = this.profile.id;
@@ -147,7 +147,7 @@ export class LoginComponent {
           }
         },
         (err) => {
-          alert("Unable to login, Reach us - writerudhi@gmail.com");
+          alert("Unable to login, Reach us - diyaelango22@gmail.com");
           console.log(err);
         }
       );
@@ -186,7 +186,7 @@ export class LoginComponent {
           (data) => {
             if (data != null && data.response != null &&
               data.response.code != null && data.response.code == 500) {
-              alert("Unable to Register now, Reach us - writerudhi@gmail.com");
+              alert("Unable to Register now, Reach us - diyaelango22@gmail.com");
             } else {
               this.profile = data.profile;
               this.author.id = this.profile.id;
@@ -208,7 +208,7 @@ export class LoginComponent {
             }
           },
           (err) => {
-            alert("Unable to sign-up, Reach us - writerudhi@gmail.com");
+            alert("Unable to sign-up, Reach us - diyaelango22@gmail.com");
             console.log(err);
           }
         );

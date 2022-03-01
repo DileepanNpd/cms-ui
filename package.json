@@ -1,5 +1,5 @@
 {
-  "name": "udhra-tamil-novels",
+  "name": "diyalakshmi-novels",
   "version": "3.0.21",
   "description": "Example project from an angular.io guide.",
   "license": "MIT",
@@ -11,10 +11,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ngcc",
-    "dev:ssr": "ng run udhra-tamil-novels:serve-ssr",
+    "dev:ssr": "ng run diyalakshmi-novels:serve-ssr",
     "serve:ssr": "node dist/server/main.js",
-    "build:ssr": "ng build --configuration production && ng run udhra-tamil-novels:server:production",
-    "prerender": "ng run udhra-tamil-novels:prerender",
+    "build:ssr": "ng build --configuration production && ng run diyalakshmi-novels:server:production",
+    "prerender": "ng run diyalakshmi-novels:prerender",
     "prod-opt": "ng build --configuration production --aot --build-optimizer"
   },
   "private": true,

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   providers: [],
 })
 export class AppComponent implements OnInit {
-  title = 'Udhra Siddharth Novels';
+  title = 'Diyalakshmi Tamil Novels';
   ngOnInit(): void {
     localStorage.setItem("recentPostsFlag", "false");
     localStorage.setItem("carouselStoriesFlag", "false");

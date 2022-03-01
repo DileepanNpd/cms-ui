@@ -19,7 +19,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/udhra-tamil-novels'),
+      dir: require('path').join(__dirname, './coverage/diyalakshmi-novels'),
       subdir: '.',
       reporters: [
         { type: 'html' },

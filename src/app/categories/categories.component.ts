@@ -30,7 +30,7 @@ export class CategoriesComponent implements OnInit {
           if(categoryId == 0) {
             this.categories = data[0].categories;
           } else {
-            this.categories = data[2].categories;  
+            this.categories = data[5].categories;  
           }
           this.show = true;
         });
