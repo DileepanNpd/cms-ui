@@ -143,6 +143,15 @@
       "parent": 5,
       "updated_at": "December 23, 2020",
       "path": "/category/16"
+    },
+    {
+      "id": 19,
+      "name": "Others",
+      "image": "/assets/category/category16.jpg",
+      "color": "#ff5588",
+      "parent": 5,
+      "updated_at": "December 23, 2020",
+      "path": "/category/19"
     }
   ]
 }
