@@ -6,9 +6,9 @@ export const environment = {
   production: false,
   service_url: 'http://127.0.0.1:8000/api/',
   domain_url: 'http://localhost:4200/#/',
-  data_ad_client: 'ca-pub-6285740649299477',
-  data_ad_slot1: '5498429605',
-  data_ad_slot2: '8755148330'
+  data_ad_client: 'ca-pub-3460876413347125',
+  data_ad_slot1: '6678904470',
+  data_ad_slot2: '9782691918'
 };
 
 /*
