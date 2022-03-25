@@ -41,6 +41,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AddEpisodeComponent } from './add-episode/add-episode.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LoginService } from './services/login.service';
+import { LocalstorageService } from './services/localstorage.service';
 import { StoriesComponent } from './stories/stories.component';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AuthorComponent } from './author/author.component';
@@ -114,6 +115,7 @@ import { PrivacyComponent } from './privacy/privacy.component';
     AuthGuard,
     CookieService,
     LoginService,
+    LocalstorageService,
     ShareService,
     LinkService,
     {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Tile, RecentPostList, Constants } from '../model/common';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { LocalstorageService } from '../services/localstorage.service';
 
 @Component({
   selector: 'app-recent-post',
@@ -13,13 +14,16 @@ export class RecentPostComponent implements OnInit {
   show: boolean = false;
   display: boolean = true;
   httpOptions = Constants.httpOptions;
+  tmpStore : LocalstorageService;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private storage: LocalstorageService) {
+    this.tmpStore = this.storage;
+   }
 
   ngOnInit(): void {
-    let carouselStoriesFlag = localStorage.getItem("recentPostsFlag");
+    let carouselStoriesFlag = this.tmpStore.getItem("recentPostsFlag");
     if (carouselStoriesFlag != null && carouselStoriesFlag != undefined && carouselStoriesFlag == "true") {
-      this.recentPosts = JSON.parse(localStorage.getItem('recentPosts'));
+      this.recentPosts = JSON.parse(this.tmpStore.getItem('recentPosts'));
       this.show = true;
     } else {
       this.httpClient
@@ -30,8 +34,8 @@ export class RecentPostComponent implements OnInit {
         .subscribe((data) => {
           this.recentPosts = data.stories;
           if (data.stories != undefined && data.stories.length > 0) {
-            localStorage.setItem('recentPosts', JSON.stringify(data.stories));
-            localStorage.setItem('recentPostsFlag', "true");
+            this.tmpStore.setItem('recentPosts', JSON.stringify(data.stories));
+            this.tmpStore.setItem('recentPostsFlag', "true");
             this.show = true;
           } else {
             this.display = false;

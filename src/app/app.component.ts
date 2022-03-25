@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-
-declare const gtag: Function;
+import {BehaviorSubject} from 'rxjs';
+import {isPlatformBrowser} from '@angular/common';
+import { LocalstorageService } from './services/localstorage.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -12,20 +14,25 @@ declare const gtag: Function;
 })
 export class AppComponent implements OnInit {
   title = 'Diyalakshmi Tamil Novels';
+  static isBrowser = new BehaviorSubject<boolean>(null);
   ngOnInit(): void {
-    localStorage.setItem("recentPostsFlag", "false");
-    localStorage.setItem("carouselStoriesFlag", "false");
-    localStorage.setItem("featurePostsFlag", "false");
+    this.metaTagService.addTags([
+      {
+        name: 'keywords',
+        content: 'read,write,novels,book,tamil,story,Diyalakshmitamilnovels,Diyalakshmi,siddharth,online',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'author', content: 'Diyalakshmi' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { charset: 'UTF-8' },
+    ]);
+
   }
-  constructor(private router: Router) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      /** START : Code to Track Page View  */
-       gtag('event', 'page_view', {
-          page_path: event.urlAfterRedirects
-       })
-      /** END */
-    })
+  constructor(private router: Router, @Inject(PLATFORM_ID) private platformId: any, 
+  private tmpStore : LocalstorageService,private metaTagService: Meta) {
+    AppComponent.isBrowser.next(isPlatformBrowser(platformId));
+    tmpStore.setItem("recentPostsFlag", "false");
+    tmpStore.setItem("carouselStoriesFlag", "false");
+    tmpStore.setItem("featurePostsFlag", "false");
   }
 }

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
+import { LocalstorageService } from './localstorage.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  tmpStore : LocalstorageService;
   constructor() { }
   logout(): void {
-    localStorage.setItem('isLoggedIn', 'false');
-    localStorage.removeItem('token');
+    this.tmpStore.setItem('isLoggedIn', 'false');
+    this.tmpStore.removeItem('token');
   }
 }

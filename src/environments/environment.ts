@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  service_url: 'http://127.0.0.1:8000/api/',
+  service_url: 'https://diyalakshminovels.com/service/api/',
   domain_url: 'http://localhost:4200/#/',
   data_ad_client: 'ca-pub-3460876413347125',
   data_ad_slot1: '6678904470',
