@@ -77,7 +77,7 @@
             </div>
         </div>
     </div>
-    <div class="w-container selectable no-print pl-2 pr-2"
+    <div class="w-container selectable no-print pl-2 pr-2" style="background-color: white;"
         [innerHTML]="sanitizer.bypassSecurityTrustHtml(storyDescription)" *ngIf="!isMeme">
     </div>
     <div *ngIf="!isFullStoryPage">
