@@ -34,6 +34,18 @@ export class AddEpisodeComponent implements OnInit {
   sessionUser: any = {};
   httpOptions = Constants.httpOptions;
   tools = Constants.tools;
+  public fontSize: Object = {
+    default: "14pt", // to define default font-family
+    items: [
+      { text: "8", value: "8pt" },
+      { text: "10", value: "10pt" },
+      { text: "12", value: "12pt" },
+      { text: "14", value: "14pt" },
+      { text: "16", value: "16pt" },
+      { text: "18", value: "18pt" },
+      { text: "20", value: "20pt" },
+    ]
+  };
 
   constructor(
     private formBuilder: FormBuilder,
