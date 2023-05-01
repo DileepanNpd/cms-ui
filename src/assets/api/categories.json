@@ -90,6 +90,15 @@
         "parent": 0,
         "updated_at": "December 23, 2020",
         "path": "/%20%E0%AE%AE%E0%AF%81%E0%AE%9F%E0%AE%BF%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AA%E0%AF%8D%E0%AE%AA%E0%AE%9F%E0%AF%8D%E0%AE%9F%20%E0%AE%95%E0%AE%A4%E0%AF%88%E0%AE%95%E0%AE%B3%E0%AF%8D/196/1"
+      },
+      {
+        "id": 8,
+        "name": "\u0b9f\u0bc0\u0b9a\u0bb0\u0bcd",
+        "image": "/assets/category/category8_new.jpg",
+        "color": "#0099cc",
+        "parent": 0,
+        "updated_at": "December 23, 2020",
+        "path": "/category/8"
       }
     ]
   },
@@ -97,7 +106,7 @@
     "categories": [
       {
         "id": 8,
-        "name": "\u0b9a\u0bae\u0bc8\u0baf\u0bb2\u0bcd \u0b95\u0bc1\u0bb1\u0bbf\u0baa\u0bcd\u0baa\u0bc1\u0b95\u0bb3\u0bcd",
+        "name": "டீசர்",
         "image": "/assets/category/category13.jpg",
         "color": "#0099cc",
         "parent": 2,
