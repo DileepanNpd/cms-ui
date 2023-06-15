@@ -32,7 +32,7 @@
                             <a routerLink="/rating/{{ recentPost.story.id }}" routerLinkActive="active">
                                 &nbsp;<i class="fa fa-thumbs-up"></i>&nbsp;{{ recentPost.story.like }}&nbsp;
                                 &nbsp;<i class="fa fa-thumbs-down"></i>&nbsp;{{ recentPost.story.dislike }}&nbsp;
-                                &nbsp;<i class="fa fa-eye"></i>&nbsp;{{ recentPost.story.views }}&nbsp;
+                                <!-- &nbsp;<i class="fa fa-eye"></i>&nbsp;{{ recentPost.story.views }}&nbsp; -->
                                 <div class="thumbnail-date-rating">
                                     <ng-template #t let-fill="fill">
                                         <span class="star" [class.full]="fill === 100">

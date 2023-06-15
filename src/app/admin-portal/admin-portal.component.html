@@ -25,8 +25,9 @@
                     <thead>
                         <tr class="d-flex">
                             <th class="col-1" scope="col">Story Id</th>
-                            <th class="col-5" scope="col">Story name</th>
+                            <th class="col-4" scope="col">Story name</th>
                             <th class="col-3" scope="col">Author name</th>
+                            <th class="col-1" scope="col">Views</th>
                             <th class="col-3" scope="col">Status</th>
                         </tr>
                     </thead>
@@ -35,9 +36,10 @@
                             <td class="col-1" scope="row"><a routerLink="/story/{{ all_story.story.id }}">{{
                                     all_story.story.id }}</a>
                             </td>
-                            <td class="col-5"><a routerLink="/story/{{ all_story.story.id }}">{{ all_story.story.name
+                            <td class="col-4"><a routerLink="/story/{{ all_story.story.id }}">{{ all_story.story.name
                                     }}</a></td>
                             <td class="col-3"> {{all_story.author.name}}</td>
+                            <td class="col-1" scope="row">{{all_story.story.views}}</td>
                             <td class="col-3" *ngIf="all_story.story.status == 0"> <button mat-raised-button
                                     color="accent" type="submit" class="btn btn-sm">Pending Review</button> </td>
                             <td class="col-3" *ngIf="all_story.story.status == 1"> <button mat-raised-button

@@ -41,7 +41,7 @@ export class StoryComponent implements OnInit, OnChanges {
   data_ad_client: string = environment.data_ad_client;
   data_ad_slot1: string = environment.data_ad_slot1;
   data_ad_slot2: string = environment.data_ad_slot2;
-
+  showView: boolean = false;
   constructor(
     private httpClient: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -57,10 +57,12 @@ export class StoryComponent implements OnInit, OnChanges {
         this.login = true;
         this.sessionUser = JSON.parse(cookieValue);
         this.refreshReaction();
+        this.showViews();
       } else {
         this.login = false;
         this.sessionUser = {};
         this.refreshReaction();
+        this.showViews();
       }
     });
   }
@@ -256,6 +258,14 @@ export class StoryComponent implements OnInit, OnChanges {
       return this.getChild(activatedRoute.firstChild);
     } else {
       return activatedRoute;
+    }
+  }
+
+  showViews() {
+    if (this.sessionUser.isAdmin != undefined) {
+      if (this.sessionUser.isAdmin == 1 || this.sessionUser.author.id == this.viewStory.author.id) {
+        this.showView = true;
+      }
     }
   }
 }
