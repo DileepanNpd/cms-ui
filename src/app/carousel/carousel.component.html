@@ -1,9 +1,9 @@
 <div class='container-fluid' *ngIf="show">
-    <div class="col-12" *ngIf="!isMobile">
+    <div class="col-12" *ngIf="!isMobile" style="height: 350px;">
         <div class="dileepan-center">
             <ngb-carousel id="1">
                 <ng-template ngbSlide *ngFor="let carousel of carouselStories">
-                    <img src="{{carousel.story.image}}">
+                    <img alt="carousel" src="{{carousel.story.image}}">
                     <div class="centered">
                         <button mat-raised-button color="accent" class="category-link btn btn-lg"
                             routerLink="/{{ carousel.category.name }}/கதை/{{ carousel.author.name}}/{{ carousel.story.id }}/{{carousel.story.name}}/1">Read
@@ -17,7 +17,7 @@
     <div class="col-12" *ngIf="isMobile">
         <ngb-carousel id="2">
             <ng-template ngbSlide *ngFor="let carousel of carouselStories">
-                <img src="{{carousel.story.image}}">
+                <img  alt="carousel"  src="{{carousel.story.image}}">
                 <div class="centered">
                     <button mat-raised-button color="accent" class="category-link btn btn-lg"
                         routerLink="/{{ carousel.category.name }}/கதை/{{ carousel.author.name}}/{{ carousel.story.id }}/{{carousel.story.name}}/1">Read
