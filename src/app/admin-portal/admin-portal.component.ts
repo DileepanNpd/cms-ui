@@ -88,7 +88,9 @@ export class AdminPortalComponent implements OnInit {
     if (this.rejectedApprovalStories.length > 0) {
       this.show.reject_flag = true;
     }
-
+    if (this.publishedStories.length > 0) {
+      this.publishedStories.sort((a,b) => b.story.id - a.story.id);
+    }
     this.show.page = true;
   }
 
