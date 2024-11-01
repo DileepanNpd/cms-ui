@@ -38,7 +38,7 @@
                 </button>
                 <button class="fa fa-thumbs-down fa-lg like-button" (click)="hitDislike()"
                     [ngStyle]="setDislikeStyle()"> {{ viewStory.story.dislike }} </button>
-                <i class="fa fa-eye fa-lg like-button" aria-hidden="true">&nbsp;{{ viewStory.story.views }}&nbsp;</i>
+                <!-- <i class="fa fa-eye fa-lg like-button" aria-hidden="true">&nbsp;{{ viewStory.story.views }}&nbsp;</i> -->
                 <div class="pt-2">
                     <a routerLink="/rating/{{ viewStory.story.id }}" routerLinkActive="active">
                         <ng-template #t let-fill="fill">
